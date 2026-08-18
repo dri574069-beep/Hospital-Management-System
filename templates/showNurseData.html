@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show nurse information</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h1>Nurse infromation</h1>
+    {% for nuInfo in nurse_info %}
+    <div id="nuInfo">
+        <div id="nuname">
+        <strong><i class="fa-solid fa-user"></i>  Name</strong>
+        <h3>{{nuInfo}}</h3>
+        </div>
+        <div id="dateofbirth">
+        <strong><i class="fa-solid fa-calendar-days"></i>  date of birth</strong>
+        <h3>{{nuInfo.date_of_birth}}</h3>
+        </div>
+        <div id="gender">
+        <strong><i class="fa-solid fa-venus-double"></i>  Gender</strong>
+        <h3>{{nuInfo.gender}}</h3>
+        </div>
+        <div id="bloodgroup">
+        <strong><i class="fa-solid fa-droplet"></i>  Blood_group</strong>
+        <h3>{{nuInfo.blood_group}}</h3>
+        </div>
+        <div id="nation">
+        <strong><i class="fa-solid fa-flag"></i>   Nationality</strong>
+        <h3>{{nuInfo.nationality}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+    {% for n in normalInfo %}
+    <div id="numinfo">
+        <div id="nucoun">
+        <strong><i class="fa-regular fa-flag"></i>  Country</strong>
+        <h3>{{n}}</h3>
+        </div>
+        <div id="phnum">
+        <strong><i class="fa-solid fa-grip-lines"></i>  Phone number</strong>
+        <h3>{{n.phone_number}}</h3>
+        </div>
+        <div id="nuem">
+        <strong><i class="fa-solid fa-at"></i>  Email</strong>
+        <h3>{{n.email}}</h3>
+        </div>
+        <div id="nuadd">
+        <strong><i class="fa-solid fa-location-crosshairs"></i>   Address</strong>
+        <h3>{{n.address}}</h3>
+        </div>
+        <div id="nucity">
+        <strong><i class="fa-solid fa-globe"></i>  City</strong>
+        <h3>{{n.city}}</h3>
+        </div>
+        <div id="nucoun">
+        <h3><i class="fa-solid fa-earth-europe"></i>  Country</h3>
+        <h3>{{n.country}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+    {% for e in NurseEmp %}
+    <div id="nuempinfo">
+        <div id="nustat">
+        <strong><i class="fa-brands fa-cloudsmith"></i>  Status</strong>
+        <h3>{{e}}</h3>
+        </div>
+        <div id="nudep">
+        <strong><i class="fa-solid fa-building"></i>   Department</strong>
+        <h3>{{e.department}}</h3>
+        </div>
+        <div id="nuqual">
+        <strong><i class="fa-regular fa-circle-check"></i>  Qualification</strong>
+        <h3>{{e.qualification}}</h3>
+        </div>
+        <div id="nulinnum">
+        <strong><i class="fa-solid fa-list-ol"></i>   nursing license number</strong>
+        <h3>{{e.nursing_license_number}}</h3>
+        </div>
+        <div id="nuexp">
+        <strong><i class="fa-solid fa-certificate"></i>  years of experience</strong>
+        <h3>{{e.years_of_experience}}</h3>
+        </div>
+        <div id="joindate">
+        <strong><i class="fa-solid fa-calendar-days"></i>  joining date: {{e.joining_date}}</strong>
+        <h3>{{e.years_of_experience}}</h3>
+        </div>
+    </div>
+    {% for w in NurseWork %}
+    <div id="shifts">
+        <div id="shiftstrt">
+        <strong><i class="fa-solid fa-hourglass-half"></i>  shift start </strong>
+        <h3>{{w.shift_start}}</h3>
+    </div>
+    <div id="shiftend">
+        <strong><i class="fa-solid fa-hourglass-start"></i>  shift end </strong>
+        <h3>{{w.shift_end}}</h3>
+    </div>
+    <div id="sal">
+        <strong><i class="fa-solid fa-sack-dollar"></i>  salary</strong>
+        <h3>{{e.salary}}</h3>
+        </div>
+        <div id="sat">
+        <strong><i class="fa-brands fa-skyatlas"></i>  status</strong>
+        <h3>{{e.status}}</h3>
+        </div>
+        <div id="emptype">
+        <strong><i class="fa-brands fa-sith"></i>   employment type</strong>
+        <h3> {{e.employment_type}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+    {% endfor %}
+    <br>
+    <div id="pageurl">
+    <p>enter more info about Nurse</p>
+    <a href="{% url 'makeNurseEmployForms' %}"><i class="fa-solid fa-link"></i>   enter info</a>
+    </div>
+</body>
+</html>

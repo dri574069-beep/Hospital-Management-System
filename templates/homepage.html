@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>please select your domain</p>
+        <br><br>
+        <div id="patinfo">
+        <p>patient can enter their information</p>
+        <p>they can book apointments</p>
+        <p>they can see available doctors</p>
+        <p>they can check their booked appointments</p>
+        <a href="{% url 'patient' %}">Link : <h3>patient home page</h3></a>
+        </div>
+        <br><br>
+        <div>
+        <p><strong>Warning : only admin is allowed ⚠</strong></p>
+        <p>cannot provide data for security reasons</p>
+        <a href="{% url 'getAdminData' %}">admin page</a>
+        </div>
+</body>
+</html>

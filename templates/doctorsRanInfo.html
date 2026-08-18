@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors info</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+</head>
+<body>
+    <p>enter the information for the doctors</p>
+    <form method="POST" action="{% url 'makeDoctorsForms' %}">
+        {% csrf_token %}
+        {{doctor_dataa.as_p}}
+        <button type="submit">enter information</button>
+    </form>
+</body>
+</html>

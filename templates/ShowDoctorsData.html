@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors Data</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+</head>
+<body>
+    <h3>Doctors information</h3>
+    {% for data in datas %}
+            <p> Name : {{data}}</p>
+            <p>Specialization : {{data.specialization}}</p>
+            <p>Gender : {{data.gender}}</p>
+            <p>Date of birth : {{data.date_of_birth}}</p>
+            <p>Nationality : {{data.nationality}}</p>
+    {% endfor %}
+    <br>
+    <h3>doctors contact information</h3>
+    {% for cons in con_tact %}
+        <p>Number : {{cons}}</p>
+        <p>EMail : {{cons.email}}</p>
+        <p>Address : {{cons.address}}</p>
+        <p>City : {{cons.city}}</p>
+        <p>Country : {{cons.country}}</p>
+    {% endfor %}
+    <br>
+    <h3>doctors profession information</h3>
+    {% for pro_data in pro_datas %}
+        <p>Qualification : {{pro_data}}</p>
+        <p>Department : {{pro_data.department}}</p>
+        <p>Medical Lisence number : {{pro_data.medical_lincense_num}}</p>
+        <p>University : {{pro_data.university}}</p>
+        <p>Years of experience : {{pro_data.years_of_experience}}</p>
+        <p>Consultation fees : {{pro_data.consultation_fee}}</p>
+        <p>Biography : {{pro_data.biography}}</p>
+    {% endfor %}
+    {% for doc in docs %}
+        <p>Status : {{doc}}</p>
+        <p>Joining Date : {{doc.joining_date}}</p>
+        <p>employment type : {{doc.employment_type}}</p>
+        <p>office number : {{doc.office_num}}</p>
+        <p>status : {{doc.status}}</p>
+        <p>workingDays : {{doc.workingDays}}</p>
+        <p>start time : {{doc.start_time}}</p>
+        <p>end time : {{doc.end_time}}</p>
+    {% endfor %}
+    <a href="{% url 'makeDoctorsForms' %}">store more info</a>
+</body>
+</html>

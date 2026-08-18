@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambulance information</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h1>Ambualnce information</h1>
+    {% for aInfo in amb_info %}
+    <div id="ainfo">
+        <div id="mdl">
+        <strong><i class="fa-solid fa-truck-medical"></i>  Vechile Model</strong>
+        <h3>{{aInfo}}</h3>
+        </div>
+        <div id="ambnum">
+        <strong><i class="fa-solid fa-arrow-up-9-1"></i>   Vechile number</strong>
+        <h3>{{aInfo.ambulance_number}}</h3>
+        </div>
+        <div id="regnum">
+        <strong><i class="fa-solid fa-list-ol"></i>  Registeration number</strong>
+        <h3>{{aInfo.registration_number}}</h3>
+        </div>
+        <div id="ambmanyear">
+        <strong><i class="fa-solid fa-calendar-minus"></i> Manufacturing year</strong>
+        <h3>{{aInfo.manufacturing_year}}</h3></h3>
+        </div>
+        <div id="ambcapacity">
+        <strong>Capacity</strong>
+        <h3><i class="fa-solid fa-ring"></i> {{aInfo.capacity}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+    {% for driInfo in dri_info %}
+    <div id="ambstaff">
+        <div id="asshosp">
+        <strong><i class="fa-solid fa-hospital"></i> Assigned hospital </strong>
+        <h3>{{driInfo.assigned_hospital}}</h3>
+        </div>
+        <div id="assstaff">
+        <strong><i class="fa-solid fa-people-group"></i>  Assigned staff</strong>
+        <h3>{{driInfo.assigned_staff}}</h3>
+        </div>
+        <div id="avaist">
+        <strong><i class="fa-regular fa-circle"></i>  Availability status </strong>
+        <h3>{{driInfo.availability_status}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+    {% for main in main_info %}
+    <div id="ambservice">
+        <div id="servicedt">
+        <strong><i class="fa-solid fa-calendar-days"></i>  Service date</strong>
+        <h3>{{main}}</h3>
+        </div>
+        <div id="nxtservicedt">
+        <strong><i class="fa-solid fa-calendar-day"></i>  Next service date</strong>
+        <h3>{{main.next_service_date}}</h3>
+        </div>
+        <div id="mainnotes">
+        <strogn><i class="fa-solid fa-clipboard-list"></i>  Maintenance notes</strong>
+            <h3>{{main.maintenance_notes}}</h3>
+        </div>
+        <div id="fuelst">
+        <strong><i class="fa-solid fa-battery-full"></i>  Fuel status </strong>
+        <h3>{{main.fuel_status}}</h3>
+        </div>
+    {% endfor %}
+    </div>
+</body>
+</html>

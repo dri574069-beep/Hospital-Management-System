@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floor Forms</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+</head>
+<body>
+    <p>enter the following info for floors</p>
+    <form method="POST" action="{% url 'FloorInfo' %}">
+        {% csrf_token %}
+        {{floorForms.as_p}}
+        <button type="submit">save info</button>
+    </form>
+</body>
+</html>

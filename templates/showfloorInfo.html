@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>floor information</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h1>Floors information</h1>
+    {% for floor in floors %}
+    <div id="floorinfo">
+        <div id="floorname">
+        <p><i class="fa-solid fa-elevator"></i>  Floor name</p>
+        <h3>{{floor.floor_name}}</h3>
+        </div>
+        <div id="floorn">
+        <strong><i class="fa-solid fa-stairs"></i> Floor number</strong>
+        <h3>{{floor.floor_num}}</h3>
+        </div>
+        <div id="floorsdec">
+        <strong><i class="fa-solid fa-pen-to-square"></i> Floor description</strong>
+        <h3>{{floor.floor_description}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

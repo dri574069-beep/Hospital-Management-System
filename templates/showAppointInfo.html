@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment information</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+</head>
+<body>
+    <h1>Appointment information</h1>
+    {% for a in app_info %}
+        <p>Patient : {{a}}</p>
+        <p>Appointment date : {{a.appointment_date}}</p>
+        <p>Appointment time : {{a.appointment_time}}</p>
+        <p>Reason for visit : {{a.reason_for_visit}}</p>
+        <p>Booked date : {{a.booked_date}}</p>
+    {% endfor %}
+</body>
+</html>

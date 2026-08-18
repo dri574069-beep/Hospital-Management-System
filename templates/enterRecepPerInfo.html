@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receptionist personal information</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+</head>
+<body>
+    <p>enter the information for receptionist</p>
+    <form method="POST" action="{% url 'fetchRecapPerInfo' %}">
+        {% csrf_token %}
+        {{perDatas.as_p}}
+        <button type="submit">save info</button>
+    </form>
+</body>
+</html>

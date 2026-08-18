@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beds information</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="urls">
+        <i class="fa-solid fa-circle-plus"></i>Hospital Care
+        <br><br>
+        {% for name in names %}
+            <a class="a" href="{% url 'ShowDocsInfo' name.id %}"><i class="fa-solid fa-circle-dot"></i>  {{name}}</a>
+        {% endfor %}
+        <br><br>
+        <a class="a" href="{% url 'doctorsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter docotrs data</a>
+        <br><br>
+        {% for data in dataas %}
+            <a class="a" href="{% url 'showDepartmentInfo' data.department_name %}"><i class="fa-solid fa-circle-dot"></i> {{data}}</a>
+        {% endfor %}
+        <br><br>
+        <a class="a" href="{% url 'dep_forms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Departments</a>
+        <br><br>
+        <a class="a" href="{% url 'ShowReceoOerData' %}"><i class="fa-solid fa-circle-dot"></i>  Receptionist data</a>
+        <br><br>
+        <a class="a" href="{% url 'fetchRecapPerInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter receptionist data</a>
+        <br><br>
+        <a class="a" href="{% url 'getAmbukancesInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Ambulance data</a>
+        <br><br>
+        <a class="a" href="{% url 'makeambforms' %}"><i class="fa-solid fa-circle-dot"></i>Enter ambulance data</a>
+        <br><br>
+        <a class="a" href="{% url 'showNurseInfo' %}"><i class="fa-solid fa-circle-dot"></i>Nurse data</a>
+        <br><br>
+        <a class="a" href="{% url 'enterNurseInfo' %}"><i class="fa-solid fa-circle-dot"></i>Enter nurse data</a>
+        <br><br>
+        <a class="a" href="{% url 'showFloorInfo' %}"><i class="fa-solid fa-circle-dot"></i>Floors data</a>
+        <br><br>
+        <a class="a" href="{% url 'FloorInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter floors data</a>
+        <br><br>
+        <a class="a" href="{% url 'showbedsInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Beds Data</a>
+        <br><br>
+        <a class="a" href="{% url 'bedsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Beds Data</a>
+        <br><br>
+        <a class="a" href="{% url 'showroomInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Rooms Data</a>
+        <br><br>
+        <a class="a" href="{% url 'roomsForm' %}"><i class="fa-solid fa-circle-dot"></i>  Enter rooms info</a>
+        <br><br>
+        <a class="a" href="{% url 'showappointmentforadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Check all booked appointments</a>
+        <br><br>
+        <a class="a" href="{% url 'patientinfotpadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Patients Data</a>
+    </div>
+    <div id="bedhead">
+    <h1>Beds information</h1>
+    </div>
+    <br>
+    <div id="beds">
+    {% for bed in beds %}
+        <div id="bedtpe">
+        <strong><i class="fa-solid fa-bed"></i>  Bed type </strong>
+        <h3>{{bed}}</h3>
+        </div>
+        <div id="bednum">
+        <strong><i class="fa-solid fa-list-ol"></i>   Bed number</strong>
+        <h3>{{bed.bed_number}}</h3>
+        </div>
+        <div id="roomnum">
+        <strong><i class="fa-solid fa-list-ol"></i> Room number </strong>
+        <h3>{{bed.room_no}}</h3>
+        </div>
+        </div>
+        <div id="maindiv2">
+        <div id="floornum">
+        <strong><i class="fa-solid fa-stairs"></i> Floor number </strong>
+        <h3>{{bed.floor_number}}</h3>
+        </div>
+        <div id="bedstatus">
+        <strong><i class="fa-solid fa-bed"></i> Bed status</strong>
+        <h3>{{bed.bed_status}}</h3>
+        </div>
+        <div id="assdate">
+        <strong><i class="fa-solid fa-calendar-xmark"></i>    Assigned date</strong>
+        <h3>{{bed.assigned_date}}</h3>
+        </div>
+        <div id="disdate">
+        <strong> <i class="fa-solid fa-calendar-check"></i>   Discharge date</strong>
+        <h3>{{bed.discharge_date}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

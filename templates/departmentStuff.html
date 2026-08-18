@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">s
+</head>
+<body>
+    <h1>enter the following information for department</h1>
+    <form method="POST" acton="{% url 'dep_forms' %}">
+        {% csrf_token %}
+        {{deps_infos.as_p}}
+        <button type="submit">add info</button>
+    </form>
+</body>
+</html>

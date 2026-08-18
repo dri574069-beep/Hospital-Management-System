@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beds forms</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+</head>
+<body>
+    <p>enter the information for beds</p>
+    <form method="POST" action="{% url 'bedsInfoForms' %}">
+        {% csrf_token %}
+        {{bedsForms.as_p}}
+        <button type="submit">save info</button>
+    </form>
+</body>
+</html>

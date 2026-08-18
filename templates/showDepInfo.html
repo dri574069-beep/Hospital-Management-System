@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department info</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+</head>
+<body>
+    <h3>Department information</h3>
+    {% for dep in deps %}
+        <p>Department Code : {{dep.department_code}}</p>
+        <p>Department Head Name : {{dep.department_head}}</p>
+        <p>Department Description : {{dep.description}}</p>
+        <p>Departmetn Location : {{dep.location}}</p>
+        <p>Opening Time : {{dep.opening_time}}</p>
+        <p>floor Number : {{dep.floor_num}}</p>
+        <p>Closing Time : {{dep.closing_time}}</p>
+        <p>Department Status : {{dep.status}}</p>
+        <p>Deaprtmetn doctors count : {{dep.total_doctors}}</p>
+    {% endfor %}
+</body>
+</html>

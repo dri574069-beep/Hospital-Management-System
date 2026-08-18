@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Receptionist Personal Data</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.CSS' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    {% for data in per_data %}
+    <h2>Receptionist personal information</h2>
+    <div id="nurseperdata">
+        <div id="recepname">
+        <strong><i class="fa-solid fa-user-gear"></i>  Name </strong>
+        <h3>{{data}}</h3>
+        </div>
+        <div id="recpBirthOfDate">
+        <strong><i class="fa-solid fa-calendar-day"></i>  Date of birth</strong>
+        <h3> {{data.date_of_birth}}</h3>
+        </div><div id="recepnation">
+        <strong><i class="fa-regular fa-flag"></i>  nationality</strong>
+        <h3> {{data.nationality}}</h3>
+        </div>
+        <div id="recepgender">
+        <strong><i class="fa-solid fa-person-half-dress"></i> gender</strong>
+        <h3>{{data.gender}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+    <h3>Receptionist Residence information</h3>
+    {% for contact in contact_data %}
+    <div id="ContInfo">
+        <div id="recepOhNumber">
+        <strong><i class="fa-solid fa-mobile-button"></i>  Phone Number </strong>
+        <h3>{{contact}}</h3>
+        </div>
+        <div id="recepEmail">
+        <strong><i class="fa-solid fa-at"></i>   Email</strong>
+        <h3>{{contact.email}}</h3>
+        </div>
+        <div id="receAdd">
+        <strong><i class="fa-solid fa-location-dot"></i>   address</strong>
+        <h3>{{contact.address}}</h3>
+        </div>
+        <div id="recepCity">
+        <storng><i class="fa-solid fa-archway"></i>  city</strong>
+        <h3>{{contact.city}}</h3>
+        </div>
+        <div id="reCountry"> 
+        <strong><i class="fa-solid fa-earth-europe"></i>   Country</storng>
+        <h3>{{contact.country}}</h3>
+        </div>
+        <div id="recepEmCOn">
+        <strong><i class="fa-regular fa-id-badge"></i>  Emergency contact name </strong>
+        <h3>{{contact.emergency_contact_name}}</h3>
+        </div>
+        <br><br>
+        <div id="recepEmerContnum">
+        <strong><i class="fa-solid fa-mobile-button"></i>  Emergency contact number</strong>
+        <h3>{{contact.emergency_contact_number}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+    {% for emp in emp_data %}
+    <h2>Receptionist Employment Information</h2>
+    <div id="nurseEmpInfo">
+        <div id="recepStat">
+        <strong><i class="fa-regular fa-circle"></i> Status</strong>
+        <h3>{{emp}}</h3>
+        </div>
+        <div id="rcepJoinDate">
+        <strong><i class="fa-solid fa-calendar-check"></i>  joining data</strong>
+        <h3>{{emp.joining_date}}</h3>
+        </div>
+        <div id="recepSalary">
+        <strong><i class="fa-solid fa-sack-dollar"></i>  Salary</strong>
+        <h3>{{emp.salary}}</h3>
+        </div>
+        <div id="recepShiftstrt">
+        <strong><i class="fa-solid fa-hourglass-half"></i>  Shift start time</strong>
+        <h3>{{emp.shift_start_time}}</h3>
+        </div>
+        <div id="recepShiftEnd">
+        <strong><i class="fa-solid fa-hourglass-half"></i>  shift end time</strong>
+        <h3>{{emp.shift_end_time}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

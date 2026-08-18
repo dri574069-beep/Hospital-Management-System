@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    {% load static %}
+
+    <link rel="Stylesheet" href="{% static 'style.CSS' %}">
+</head>
+<body>
+    <h1>Welcome</h1>
+    <pre><p>enter your information by clicking on the patient domain section and book appointments by 
+clicking on the show appointments and you can also see your booked appointments later you check the doctors list too 
+for you specific choice of doctors</p></pre>
+    <br><br><br>
+    <div id="patient">
+            <br>
+            <p>Patient Domain</p>
+            <p>enter information</p>
+            <a href="{% url 'patientData' %}">link : <h3>Patient database</h3></a>
+    </div>
+    <br>
+    <div id="appdiv">
+    <p>Book appointments</p>
+    <a href="{% url 'AppointmentForms' %}">link : <h3>book appointments</h3></a>
+    </div>
+    <br>
+    <div id="docinfodiv">
+    <p>doctors</p>
+    <a href="{% url 'showdocsinfo' %}">link : <h3>doctors information</h3></a>
+    </div>
+    <br>
+    <div id="seeppoindiv">
+    <p>see booked appointments</p>
+    <a href="{% url 'showappointinfo' %}">link : <h3>see booked appointment</h3></a>
+    </div>
+    <br>
+</body>
+</html>
