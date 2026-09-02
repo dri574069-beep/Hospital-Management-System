@@ -7,15 +7,22 @@
     {% load static %}
 
     <link rel="stylesheet" href="{% static 'style.CSS' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
-<body>
-    <h1>Appointment information</h1>
+<body id="backgroundimg">
+    <h1 style="text-align:center"><i class="fa-solid fa-file-circle-plus"></i>   Appointment information</h1>
+    <br><BR><BR>
+    <div style="position:absolute;left:500px;">
     {% for a in app_info %}
-        <p>Patient : {{a}}</p>
-        <p>Appointment date : {{a.appointment_date}}</p>
-        <p>Appointment time : {{a.appointment_time}}</p>
-        <p>Reason for visit : {{a.reason_for_visit}}</p>
-        <p>Booked date : {{a.booked_date}}</p>
+    <div class="appoints">
+        <h1>Patient : {{a}}</h1>
+        <p><i class="fa-solid fa-star"></i>  Appointment date : {{a.appointment_date}}</p>
+        <p><i class="fa-solid fa-star"></i>  Appointment time : {{a.appointment_time}}</p>
+        <p><i class="fa-solid fa-star"></i>  Reason for visit : {{a.reason_for_visit}}</p>
+        <p><i class="fa-solid fa-star"></i>  Booked date : {{a.booked_date}}</p>
+    </div>
+    <br><br>
     {% endfor %}
+    </div>
 </body>
 </html>

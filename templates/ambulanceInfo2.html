@@ -10,7 +10,7 @@
 </head>
 <body>
     <p>enter the following information for ambulance</p>
-    <form method="POST" action="{% url 'addAmNorInfo' %}">
+    <form method="POST" action="{% url 'addAmNorInfo' id %}">
         {% csrf_token %}
         {{am_info.as_p}}
         <button type="submit">enter information</button>

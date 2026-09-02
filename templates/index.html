@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'style.CSS' %}">
 </head>
 <body id="home">
+    <p>please use your actual name</p>
     <h1>Login</h1>
     <form method="POST" action="{% url 'user_login' %}">
     {% csrf_token %}

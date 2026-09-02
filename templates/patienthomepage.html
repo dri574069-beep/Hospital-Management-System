@@ -7,34 +7,57 @@
     {% load static %}
 
     <link rel="Stylesheet" href="{% static 'style.CSS' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
-<body>
-    <h1>Welcome</h1>
+<body id="bodies">
+    <div id="main">
+        <h1 style="position:absolute;right:10px;top:10px"><i class="fa-solid fa-bars"></i></h1>
+    <h1 style="position:absolute;left:300px;top:5px;">Welcome</h1>
+    <br>
     <pre><p>enter your information by clicking on the patient domain section and book appointments by 
-clicking on the show appointments and you can also see your booked appointments later you check the doctors list too 
-for you specific choice of doctors</p></pre>
-    <br><br><br>
+clicking on the show appointments and you can also see your booked appointments later 
+you check the doctors list too for you specific choice of doctors</p></pre>
     <div id="patient">
             <br>
-            <p>Patient Domain</p>
+            <h1><i class="fa-solid fa-hotel"></i></h1>
+            <h1>Patient Domain</h1>
             <p>enter information</p>
-            <a href="{% url 'patientData' %}">link : <h3>Patient database</h3></a>
+            <BR>
+            <div style="color:white">
+            <p style="background-color:darkblue;;width:190px;height:60px;border-radius:20px;padding:20px;"><a href="{% url 'patientData' %}"><i class="fa-solid fa-link"></i>    link : <h3 style="position:absolute;top:230px;left:40px;">Patient database</h3></a></p>
+            </div>
     </div>
     <br>
     <div id="appdiv">
-    <p>Book appointments</p>
-    <a href="{% url 'AppointmentForms' %}">link : <h3>book appointments</h3></a>
+    <h1 style="position:absolute;left:100px;top:10px;"><i class="fa-solid fa-file-circle-check"></i></h1>
+    <br><br>
+    <h1>Book appointments</h1>
+    <br>
+    <div style="color:white;background-color:darkblue;width:190px;height:60px;border-radius:20px;padding:20px">
+    <a href="{% url 'AppointmentForms' %}"><i class="fa-solid fa-link"></i>   link : <h3>book appointments</h3></a>
+    </div>
     </div>
     <br>
     <div id="docinfodiv">
-    <p>doctors</p>
-    <a href="{% url 'showdocsinfo' %}">link : <h3>doctors information</h3></a>
+        <h1 style="position:absolute;left:100px;top:15px"><i class="fa-solid fa-user-doctor"></i></h1>
+        <br><br>
+    <h1>doctors information</h1>
+    <BR>
+    <div style="color:white;background-color:darkblue;width:190px;height:60px;border-radius:20px;padding:20px">
+    <a href="{% url 'showdocsinfo' %}"><i class="fa-solid fa-link"></i>   link : <h3>doctors information</h3></a>
+    </div>
     </div>
     <br>
     <div id="seeppoindiv">
-    <p>see booked appointments</p>
-    <a href="{% url 'showappointinfo' %}">link : <h3>see booked appointment</h3></a>
+    <h1 style="position:absolute;left:100px;top:10px"><i class="fa-solid fa-file-circle-plus"></i></h1>
+    <br><br>
+    <h1>Booked appointments</h1>
+    <BR>
+    <div style="color:white;background-color:darkblue;width:200px;height:60px;border-radius:20px;padding:20px">
+    <a href="{% url 'showappointinfo' %}"><i class="fa-solid fa-link"></i>  link : <h3>see booked appointment</h3></a>
+    </div>
     </div>
     <br>
+    </div>
 </body>
 </html>

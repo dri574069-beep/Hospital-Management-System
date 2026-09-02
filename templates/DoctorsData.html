@@ -10,10 +10,12 @@
 </head>
 <body>
     <p>enter the following information</p>
-    <form method="POST" action="{% url 'makingDoctorsForms' %}">
+    <div style="position:absolute;left:10px">
+    <form method="POST" action="{% url 'makingDoctorsForms' id %}">
         {% csrf_token %}
         {{DoctorDatas.as_p}}
         <button type="submit">next</button>
     </form>
+    </div>
 </body>
 </html>

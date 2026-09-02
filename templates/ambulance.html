@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rooms info</title>
+    <title>Ambulance information</title>
     {% load static %}
-
     <link rel="stylesheet" href="{% static 'style.CSS' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -41,42 +40,18 @@
         <br><br>
         <a class="a" href="{% url 'patientinfotpadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Patients Data</a>
     </div>
-    <h1 id="roomhead"><i class="fa-solid fa-door-closed" id="door"></i>  Rooms information</h1>
-    <div id="ranwidgets">
-    <p>⚠ Press f5 or Win+shift+R to see changes</p>
-    <p>see all information</p>
-    </div>
-    <hr id="line">
-    <br><br><br><br>
-    <div class="roomsinfo">
-    {% for room in rooms %}
-    <div class="roominfo1">
-        <pre><i class="fa-solid fa-bed"></i><strong>Room type  :  {{room}}</strong></pre>
+    <hr style="width:1300px;position:absolute;left:180px;top:130px">
+    <div style="position:absolute;left:200px;top:10px;">
+    <h1><i class="fa-solid fa-truck-medical"></i>  Ambulance Data</h1>
+     <p style=color:blue>See all ambulances data</p>
+     </div>
+     <div style="position:absolute;left:200px;top:170px;">
+    {% for a in amb %}
+        <a href="{% url 'getAmbukancesInfo' a.id %}"><i class="fa-solid fa-link"></i>   link : ambulance number {{a.ambulance_number}}</a>
         <br>
-        <pre><i class="fa-solid fa-door-closed"></i><strong>Room number :  {{room.room_number}}</strong></pre>
         <br>
-        <pre><i class="fa-solid fa-stairs"></i><strong>Floor number :  {{room.floor_number}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-stethoscope"></i><strong>Department    :  {{room.department}}</strong></pre>
-        </div>
-        <div class="roominfo2">
-        <pre><i class="fa-solid fa-ring"></i><strong>Capacity :  {{room.capacity}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-bed"></i><strong>Occupied beds :  {{room.occupied_beds}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-bed"></i> <strong>Available beds    :   {{room.available_beds}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-house-medical-circle-check"></i><strong>Room status    :   {{room.room_status}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-money-check-dollar"></i><strong>Daily charge    :  {{room.daily_charge}}</strong></pre>
-        <form method="POST" action="{% url 'deleteRoomsInfos' %}">
-            {% csrf_token %}
-            <input type="hidden" name="roomId" value="{{room.id}}">
-            <button type="submit">Delete {{room.room_number}}</button>
-        </form>
-        <br>
-        </div>
     {% endfor %}
-    </div>
+    <br>
+     </div>
 </body>
 </html>

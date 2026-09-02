@@ -10,96 +10,103 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <h1>Patient information</h1>
+    <div class="urls">
+        <i class="fa-solid fa-circle-plus"></i>Hospital Care
+        <br><br>
+        {% for name in names %}
+            <a class="a" href="{% url 'ShowDocsInfo' name.id %}"><i class="fa-solid fa-circle-dot"></i>  {{name}}</a>
+        {% endfor %}
+        <br><br>
+        <a class="a" href="{% url 'doctorsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter docotrs data</a>
+        <br><br>
+        {% for data in dataas %}
+            <a class="a" href="{% url 'showDepartmentInfo' data.department_name %}"><i class="fa-solid fa-circle-dot"></i> {{data}}</a>
+        {% endfor %}
+        <br><br>
+        <a class="a" href="{% url 'dep_forms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Departments</a>
+        <br><br>
+        <a class="a" href="{% url 'fetchRecapPerInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter receptionist data</a>
+        <br><br>
+        <a class="a" href="{% url 'makeambforms' %}"><i class="fa-solid fa-circle-dot"></i>Enter ambulance data</a>
+        <br><br>
+        <a class="a" href="{% url 'enterNurseInfo' %}"><i class="fa-solid fa-circle-dot"></i>Enter nurse data</a>
+        <br><br>
+        <a class="a" href="{% url 'FloorInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter floors data</a>
+        <br><br>
+        <a class="a" href="{% url 'bedsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Beds Data</a>
+        <br><br>
+        <a class="a" href="{% url 'roomsForm' %}"><i class="fa-solid fa-circle-dot"></i>  Enter rooms info</a>
+        <br><br>
+        <a class="a" href="{% url 'showappointmentforadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Check all booked appointments</a>
+        <br><br>
+        <a class="a" href="{% url 'patientinfotpadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Patients Data</a>
+    </div>
+    <h1 id="headofpat"><i class="fa-solid fa-hospital-user"></i>  Patient information</h1>
+    <div style="position:absolute;left:180px;top:80px">
+        <strong>⚠ press f5 or Win+Shift+R to see the changes</strong>
+        <p style="color:blue;">See the following information about Patients</p>
+        <hr style="width:1300px">
+    </div>
+    <div id="motherofpatients">
     {% for p in perinfo %}
-    <div id="nurperinfo">
-        <div id="name">
-        <strong><i class="fa-solid fa-user"></i>  Name</strong>
-        <h3>{{p.full_name}}</h3>
-        </div>
-        <div id="dateofbir">
-        <strong><i class="fa-solid fa-calendar-day"></i> Date of birth</strong>
-        <h3>{{p.date_of_birth}}</h3>
-        </div>
-        <div id="age">
-        <strong><i class="fa-solid fa-sun"></i> Age </strong>
-        <h3>{{p.age}}</h3>
-        </div>
-        <div id="gender">
-        <strong><i class="fa-solid fa-person-half-dress"></i> Gender</strong>
-        <h3>{{p.gender}}</h3>
-        </div>
-        <div id="bloodgrp">
-        <strong><i class="fa-solid fa-droplet"></i> Blood group </strong>
-        <h3>{{p.blood_group}}</h3>
-        </div>
-        <div id="martialst">
-        <strong><i class="fa-regular fa-circle"></i>Martial status </strong>
-        <h3>{{p.martial_status}}</h3>
-        </div>
-        <div id="nationality">
-        <strong><i class="fa-solid fa-flag"></i>  Nationality </strong>
-        <h3>{{p.nationality}}</h3>
-        </div>
+    <div class="userperinfo">
+        <pre><i class="fa-solid fa-user"></i>  Name : {{p.full_name}}</pre>
+        <pre><i class="fa-solid fa-calendar-day"></i> Date of birth : {{p.date_of_birth}}</pre>
+        <pre><i class="fa-solid fa-sun"></i> Age : {{p.age}}</pre>
+        <pre><i class="fa-solid fa-person-half-dress"></i> Gender : {{p.gender}}</pre>
+        <pre><i class="fa-solid fa-droplet"></i> blood group : {{p.blood_group}}</pre>
+        <pre><i class="fa-regular fa-circle"></i> martial_status :   {{p.martial_status}}</pre>
+        <pre><i class="fa-solid fa-flag"></i> nationality :   {{p.nationality}}</pre>
+        <form method="POST" action="{% url 'deletePatient' %}">
+            {% csrf_token %}
+            <input type="hidden" name="patientId" value="{{p.id}}">
+            <button type="submit">Delete</button>
+        </form>
     </div>
     {% endfor %}
     <br>  
-    <h3 id="patint">Patient contact info</h3>
-    <div id="coninfo">
     {% for c in contactinfo %}
-    <div id="phnum">
-        <strong><i class="fa-solid fa-mobile-screen-button"></i>  Phone number </strong>
-        <h3>{{c.phone_number}}</h3>
-    </div>
-    <div id="email">
-        <strong><i class="fa-solid fa-at"></i>  Email</strong>
-        <h3>{{c.email}}</h3>
-    </div>
-    <div id="add">
-        <strong><i class="fa-solid fa-location-dot"></i>  Address </strong>
-        <h3>{{c.address}}</h3>
-    </div>
-    <div id="city">
-        <strong><i class="fa-solid fa-city"></i>  City </strong>
-        <h3>{{c.city}}</h3>
-    </div>
-    <div id="country">
-        <strong><i class="fa-solid fa-flag"></i>  Country</strong>
-        <h3>{{c.country}}</h3>
-    </div>
-    </div>
+    <div class="patconinfo">
+    <h3 id="patint">Patient contact info</h3>
+        <pre><i class="fa-solid fa-mobile-screen-button"></i> phonenumber :  {{c.phone_number}}</pre>
+        <pre><i class="fa-solid fa-at"></i>  Email  {{c.email}}</pre>
+        <pre><i class="fa-solid fa-location-dot"></i> address :   {{c.address}}</pre>
+        <pre><i class="fa-solid fa-city"></i> city :  {{c.city}}</pre>
+        <pre><i class="fa-solid fa-flag"></i>  Country {{c.country}}</pre>
+        <form method="POST" action="{% url 'deletePatientContactInfo' %}">
+            {% csrf_token %}
+            <input type="hidden" name="patientcontactId" value="{{c.id}}">
+            <button type="submit">Delete</button>
+        </form>
+        </div>
     {% endfor %}
-    <br>
-    <h3>Emergency contact information</h3>
+    <br><br>
     {% for e in emerconinfo %}
-    <div id="restinfo">
-    <div id="emcontact">
-        <strong><i class="fa-solid fa-circle-h"></i>  Emergency contact name</strong>
-        <h3>{{e.emergency_con_name}}</h3>
-    </div>
-    <div id="emernum">
-        <strong><i class="fa-solid fa-circle-h"></i>  Emergency number</strong>
-        <h3>{{e.emergency_number}}</h3>
-    </div>
-    </div>
+    <div class="patemerconinfo">
+    <h3>Emergency contact information</h3>
+        <pre><i class="fa-solid fa-circle-h"></i>  Emergency contact name  {{e.emergency_con_name}}</pre>
+        <pre><i class="fa-solid fa-circle-h"></i>  Emergency number  {{e.emergency_number}}</pre>
+        <form method="POST" action="{% url 'deleteEmPatient' %}">
+            {% csrf_token %}
+            <input type="hidden" name="patientemercontactId" value="{{e.id}}">
+            <button type="submit">Delete</button>
+        </form>
+        </div>
     {% endfor %}
-    <br>
-    <h3 id="medi">Medical information</h3>
-    <div id="medinfo">
+    <br><br>
     {% for m in medicalinfo %}
-    <div id="all">
-        <strong><i class="fa-solid fa-circle-stop"></i>  Allergies</strong>
-        <h3>{{m.allergies}}</h3>
-    </div>
-    <div id="height">
-        <strong><i class="fa-solid fa-up-down"></i>  Height</strong>
-        <h3>{{m.height}}</h3>
-    </div>
-    <div id="weight">
-        <strong><i class="fa-solid fa-scale-balanced"></i>  Weight</strong>
-        <h3>{{m.weight}}</h3>
-    </div>
-    </div>
+    <div class="patmedinfo">
+        <h3>Medical information</h3>
+        <pre><i class="fa-solid fa-circle-stop"></i>  Allergies {{m.allergies}}</pre>
+        <pre><i class="fa-solid fa-up-down"></i>  Height  {{m.height}}</pre>
+        <pre><i class="fa-solid fa-scale-balanced"></i>  Weight  {{m.weight}}</pre>
+        <form method="POST" action="{% url 'deletePatientMedInfos' %}">
+            {% csrf_token %}
+            <input type="hidden" name="patientMedInfo" value="{{m.id}}">
+            <button type="submit">Delete</button>
+        </form>
+        </div>
     {% endfor %}
+    </div>
 </body>
 </html>

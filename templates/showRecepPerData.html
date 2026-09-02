@@ -10,84 +10,136 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <div class="urls">
+        <i class="fa-solid fa-circle-plus"></i>Hospital Care
+        <br><br>
+        {% for name in names %}
+            <a class="a" href="{% url 'ShowDocsInfo' name.id %}"><i class="fa-solid fa-circle-dot"></i>  {{name}}</a>
+        {% endfor %}
+        <br><br>
+        <a class="a" href="{% url 'doctorsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter docotrs data</a>
+        <br><br>
+        {% for data in dataas %}
+            <a class="a" href="{% url 'showDepartmentInfo' data.department_name %}"><i class="fa-solid fa-circle-dot"></i> {{data}}</a>
+        {% endfor %}
+        <br><br>
+        <a class="a" href="{% url 'dep_forms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Departments</a>
+        <br><br>
+        <a class="a" href="{% url 'fetchRecapPerInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter receptionist data</a>
+        <br><br>
+        <a class="a" href="{% url 'makeambforms' %}"><i class="fa-solid fa-circle-dot"></i>Enter ambulance data</a>
+        <br><br>
+        <a class="a" href="{% url 'enterNurseInfo' %}"><i class="fa-solid fa-circle-dot"></i>Enter nurse data</a>
+        <br><br>
+        <a class="a" href="{% url 'FloorInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter floors data</a>
+        <br><br>
+        <a class="a" href="{% url 'bedsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Beds Data</a>
+        <br><br>
+        <a class="a" href="{% url 'roomsForm' %}"><i class="fa-solid fa-circle-dot"></i>  Enter rooms info</a>
+        <br><br>
+        <a class="a" href="{% url 'showappointmentforadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Check all booked appointments</a>
+        <br><br>
+        <a class="a" href="{% url 'patientinfotpadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Patients Data</a>
+    </div>
+    <div id="motherofrecep">
+    <div id="maindiv">
+    <h2><i class="fa-solid fa-user-tie"></i>  Receptionist Information</h2>
+    <pre id="bar"><i class="fa-solid fa-bars"></i>  <strong>Admin Dashboard</strong>                                                                                            <i class="fa-solid fa-circle-user"></i> Admin</pre>
+
+    <p>⚠ Press f5 or Win+shift+R to see the changes</p>
+    <p style="color:blue">receptionist data</p>
+    <hr width="1300px">
+    <br><br>
     {% for data in per_data %}
-    <h2>Receptionist personal information</h2>
-    <div id="nurseperdata">
-        <div id="recepname">
+    <div class="nurseperdata">
+        <div class="recepname">
         <strong><i class="fa-solid fa-user-gear"></i>  Name </strong>
         <h3>{{data}}</h3>
         </div>
-        <div id="recpBirthOfDate">
+        <div class="recpBirthOfDate">
         <strong><i class="fa-solid fa-calendar-day"></i>  Date of birth</strong>
         <h3> {{data.date_of_birth}}</h3>
-        </div><div id="recepnation">
+        </div><div class="recepnation">
         <strong><i class="fa-regular fa-flag"></i>  nationality</strong>
         <h3> {{data.nationality}}</h3>
         </div>
-        <div id="recepgender">
+        <div class="recepgender">
         <strong><i class="fa-solid fa-person-half-dress"></i> gender</strong>
         <h3>{{data.gender}}</h3>
         </div>
+        <form method="POST" action="{% url 'delRecepInfo' %}">
+            {% csrf_token %}
+            <input type="hidden" name="recepId" value="{{data.id}}">
+            <button type="submit">Delete</button>
+        </form>
     </div>
     {% endfor %}
     <h3>Receptionist Residence information</h3>
     {% for contact in contact_data %}
-    <div id="ContInfo">
-        <div id="recepOhNumber">
+    <div class="ContInfo">
+        <div class="recepOhNumber">
         <strong><i class="fa-solid fa-mobile-button"></i>  Phone Number </strong>
         <h3>{{contact}}</h3>
         </div>
-        <div id="recepEmail">
+        <div class="recepEmail">
         <strong><i class="fa-solid fa-at"></i>   Email</strong>
         <h3>{{contact.email}}</h3>
         </div>
-        <div id="receAdd">
+        <div class="receAdd">
         <strong><i class="fa-solid fa-location-dot"></i>   address</strong>
         <h3>{{contact.address}}</h3>
         </div>
-        <div id="recepCity">
-        <storng><i class="fa-solid fa-archway"></i>  city</strong>
+        <div class="recepCity">
+        <strong><i class="fa-solid fa-archway"></i>  city</strong>
         <h3>{{contact.city}}</h3>
         </div>
-        <div id="reCountry"> 
+        <div class="reCountry"> 
         <strong><i class="fa-solid fa-earth-europe"></i>   Country</storng>
         <h3>{{contact.country}}</h3>
         </div>
-        <div id="recepEmCOn">
-        <strong><i class="fa-regular fa-id-badge"></i>  Emergency contact name </strong>
-        <h3>{{contact.emergency_contact_name}}</h3>
-        </div>
-        <br><br>
-        <div id="recepEmerContnum">
+        <div class="recepEmerContnum">
         <strong><i class="fa-solid fa-mobile-button"></i>  Emergency contact number</strong>
         <h3>{{contact.emergency_contact_number}}</h3>
         </div>
+        <br>
+        <form method="POST" action="{% url 'delRecepConInfo' %}">
+            {% csrf_token %}
+            <input type="hidden" name="continfoId" value="{{contact.id}}">
+            <button type="submit">Delete</button>
+        </form>
     </div>
     {% endfor %}
     {% for emp in emp_data %}
     <h2>Receptionist Employment Information</h2>
-    <div id="nurseEmpInfo">
-        <div id="recepStat">
+    <div class="nurseEpInfo">
+        <div class="recepStat">
         <strong><i class="fa-regular fa-circle"></i> Status</strong>
         <h3>{{emp}}</h3>
         </div>
-        <div id="rcepJoinDate">
+        <div class="rcepJoinDate">
         <strong><i class="fa-solid fa-calendar-check"></i>  joining data</strong>
         <h3>{{emp.joining_date}}</h3>
         </div>
-        <div id="recepSalary">
+        <div class="recepSalary">
         <strong><i class="fa-solid fa-sack-dollar"></i>  Salary</strong>
         <h3>{{emp.salary}}</h3>
         </div>
-        <div id="recepShiftstrt">
+        <div class="recepShiftstrt">
         <strong><i class="fa-solid fa-hourglass-half"></i>  Shift start time</strong>
         <h3>{{emp.shift_start_time}}</h3>
         </div>
-        <div id="recepShiftEnd">
+        <div class="recepShiftEnd">
         <strong><i class="fa-solid fa-hourglass-half"></i>  shift end time</strong>
         <h3>{{emp.shift_end_time}}</h3>
         </div>
+        <form method="POST" action="{% url 'deleteRecepEmpInfo' %}">
+            {% csrf_token %}
+            <input type="hidden" name="empId" value="{{emp.id}}">
+            <button type="submit">Delete</button>
+        </form>
     </div>
     {% endfor %}
+    </div>
+    </div>
 </body>
 </html>

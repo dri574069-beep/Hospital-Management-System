@@ -1,13 +1,53 @@
 from django import forms
 
 class loginInfo(forms.Form):
+    username=forms.CharField(max_length=100,widget=forms.TextInput)
     email=forms.EmailField(
         widget=forms.EmailInput(attrs={
             "placeholder":"enter email"
         }))
     password=forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"enter password"})
     )
+class deletePatientData(forms.Form):
+    patientId=forms.IntegerField(widget=forms.NumberInput)
+class deletepatientContData(forms.Form):
+    patientcontactId=forms.IntegerField(widget=forms.NumberInput)
+class deleteEmerInfoPat(forms.Form):
+    patientemercontactId=forms.IntegerField(widget=forms.NumberInput)
+class deletePatientMedInfo(forms.Form):
+    patientMedInfo=forms.IntegerField(widget=forms.NumberInput)
+class DeleteNurseData(forms.Form):
+    NurseId=forms.IntegerField(widget=forms.NumberInput)
+class deleteNurseConInfo(forms.Form):
+    NurseCOnId=forms.IntegerField(widget=forms.NumberInput)
+class DeleteNuseEmpInfos(forms.Form):
+    NurseEmId=forms.IntegerField(widget=forms.NumberInput)
+class DeleteNurseWorksInfo(forms.Form):
+    NurseWorkId=forms.IntegerField(widget=forms.NumberInput)
+class deleteBeds(forms.Form):
+    bedsId=forms.IntegerField(widget=forms.NumberInput)
+class deleteApp(forms.Form):
+    appId=forms.IntegerField(widget=forms.NumberInput)
+class deleteRooms(forms.Form):
+    roomId=forms.IntegerField(widget=forms.NumberInput)
+class deleteFloorsInfo(forms.Form):
+    floorId=forms.IntegerField(widget=forms.NumberInput)
+class delRecepInformation(forms.Form):
+    recepId=forms.IntegerField(widget=forms.NumberInput)
+class deleterecepEmpInfo(forms.Form):
+    continfoId=forms.IntegerField(widget=forms.NumberInput)
+class delRecepEmpInfo(forms.Form):
+    empId=forms.IntegerField(widget=forms.NumberInput)
+class deleteAmbulance(forms.Form):
+    ambId=forms.IntegerField(widget=forms.NumberInput)
+class deleteDep(forms.Form):
+    depId=forms.IntegerField(widget=forms.NumberInput)
+class DeleteDoc(forms.Form):
+    docId=forms.IntegerField(widget=forms.NumberInput)
+class deleteMeds(forms.Form):
+    medId=forms.IntegerField(widget=forms.NumberInput)
 class checkPass(forms.Form):
+    username=forms.CharField(max_length=200,widget=forms.TextInput)
     password=forms.CharField(max_length=200,widget=forms.PasswordInput)
 class ptientInfo(forms.Form):
     name=forms.CharField(max_length=200,widget=forms.TextInput(attrs={"placeholder":"enter your name"}))    
@@ -87,9 +127,9 @@ class recep_contact(forms.Form):
     shift_start_time=forms.TimeField(widget=forms.TimeInput(attrs={"type":"time"}))
     shift_end_time=forms.TimeField(widget=forms.TimeInput(attrs={"type":"time"}))
 class ambulanceInfo(forms.Form):
-    ambulance_num=forms.IntegerField(widget=forms.NumberInput)
+    ambulance_num=forms.CharField(max_length=200,widget=forms.TextInput)
     vehicle_model=forms.CharField(max_length=200,widget=forms.TextInput)
-    registration_number=forms.IntegerField(widget=forms.NumberInput)
+    registration_number=forms.CharField(max_length=200,widget=forms.TextInput)
     manufacturing_year=forms.DateField(widget=forms.DateInput(attrs={"type":"date"}))
     capacity=forms.CharField(max_length=200,widget=forms.TextInput)
 class ambdriverAndmainInfo(forms.Form):

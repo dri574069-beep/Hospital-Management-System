@@ -8,6 +8,213 @@
     top:60px;
     left : 180px;
 }
+#docs {
+    position:absolute;
+    left:180px;
+    top:200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    white-space: nowrap;
+}
+.docs a {
+    display: inline-flex;
+    align-items: center;
+}
+.docs a p {
+    margin: 0;
+}
+#motherofrecep{
+    position:absolute;
+    top:10px;
+    left:180px;
+}
+#headofpat{
+    position:absolute;
+    top:20px;
+    left:200px;
+}
+#maindivofNurse{
+    flex:1;
+    position:absolute;
+    top:200px;
+    left:200px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+.nurseGenInfo{
+    width:260px;
+    height:240px;
+    padding-right:60px;
+    padding-top:20px;
+    padding-left:60px;
+    border-radius:50px;
+    border:0.5px solid black;
+    color:indigo;
+}
+.nurseGenInfo:hover{
+    border:8px solid indigo
+}
+.nurseResInfo{
+    width:260px;
+    height:240px;
+    padding-right:60px;
+    padding-top:20px;
+    padding-left:60px;
+    border-radius:50px;
+    border:0.5px solid black;
+    color:#1a662e;
+}
+.nurseResInfo:hover{
+    border:8px solid  #1a662e;
+}
+.nurseEmpInfo{
+    width:300px;
+    height:650px;
+    padding-right:65px;
+    padding-top:20px;
+    padding-left:60px;
+    padding-bottom:20px;
+    border-radius:50px;
+    border:0.5px solid black;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    color:#7a1050;
+}
+.nurseEmpInfo:hover{
+    border:8px solid #7a1050;
+}
+.nurseworkinfo{
+    width:260px;
+    height:280px;
+    padding-right:60px;
+    padding-top:20px;
+    padding-left:60px;
+    padding-bottom:20px;
+    border-radius:50px;
+    border:0.5px solid black;
+    color:navy;
+}
+.nurseworkinfo:hover{
+    border:8px solid navy;
+}
+.depurl{
+    display:block;
+    margin:30px;
+}
+#adddep{
+    position:absolute;
+    top: 0px;
+    left:150px;
+}
+#desinfo{
+    position:absolute;
+    top:320px;
+    left:180px;
+}
+#bedhead{
+    position:absolute;
+    left:190px;
+}
+#motherdiv{
+    position:absolute;
+    top:30px;
+    left:180px;
+}
+.bedsinfo{
+    position:absolute;
+    left:180px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    margin:2px;
+    border:0.5px solid black;
+    height:350px;
+    width:600px;
+    padding:20px;
+    border-radius:50px;
+    color:darkmagenta;
+}
+.bedsinfo:hover{
+    border:8px solid darkmagenta;
+}
+.secbedinfo{
+    position:absolute;
+    left:180px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    margin:2px;
+    border:0.5px solid black;
+    height:350px;
+    width:600px;
+    padding:20px;
+    border-radius:50px;
+    color:darkmagenta;
+} 
+.secbedinfo:hover{
+    border:8px solid darkmagenta;
+}
+#motherofpatients{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin:2px;
+    position:absolute;
+    top:150px;
+    left:190px;
+}
+.userperinfo{
+    border:2px solid black;
+    height:250px;
+    width:250px;
+    padding:25px;
+    border-radius:50px;
+    color:#a80348;
+    font-size:15px;
+}
+.userperinfo:hover{
+    border:8px solid #a80348;
+}
+.patconinfo{
+    border:0.5px solid black;
+    height:200px;
+    width:209px;
+    padding:25px;
+    border-radius:50px;
+    color:#156373;
+    font-size:15px;
+}
+.patconinfo:hover{
+    border:8px solid #156373;
+}
+.patemerconinfo{
+    border:0.5px solid black;
+    height:200px;
+    width:300px;
+    padding:20px;
+    border-radius:50px;
+    color:#358261;
+    font-size:15px;
+}
+.patemerconinfo:hover{
+    border:8px solid #358261;
+}
+.patmedinfo{
+    border:0.5px solid black;
+    height:200px;
+    width:200px;
+    padding:20px;
+    border-radius:50px;
+    color:#693a85;
+    font-size:15px;
+}
+.patmedinfo:hover{
+    border: 8px solid #693a85;
+}
 #hospbody{
     height:1500px;
 }
@@ -103,11 +310,11 @@
 .fa-solid.fa-book-medical{
     font-size : 35px;
 }
-#dephead{
+/* #dephead{
     position : absolute;
     top : 310px;
     left : 180px;
-}
+} */
 #depurl{
     position : absolute;
     top : 380px;
@@ -167,31 +374,320 @@ a{
     position : absolute;
     top : 2px;
 }
-#appoint{
+.floorsinfo{
+    position:absolute;
+    left:180px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin:20px;
+}
+.ambinfo2{
+    height:300px;
+    padding:30px;
+    border-radius:50px;
+    width:300px;
+    border:0.5px solid black;
+    color:#a6084d;
+}
+#image{
+    width:1500px;
+    height:500px;
+}
+.ambinfo2:hover{
+    border:8px solid #a6084d;
+}
+.ambinfo3{
+    height:350px;
+    padding:30px;
+    border-radius:50px;
+    width:300px;
+    border:0.5px solid black;
+    color:#436a7a;
+}
+.ambinfo3:hover{
+    border:8px solid #436a7a;
+}
+.ambinfo1{
+    height:450px;
+    padding:30px;
+    border-radius:50px;
+    width:300px;
+    border:0.5px solid black;
+    color:darkmagenta;
+}
+.ambinfo1:hover{
+    border:8px solid darkmagenta;
+}
+#ambinfosran{
+    position:absolute;
+    top:60px;
+    left:180px;
+    color:blue;
+}
+.ambulanceinfo{
+    position:absolute;
+    top:150px;
+    left:180px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    width:100%;
+    height:500px;
+    gap:20px;
+    margin:20px;
+}
+#amheading{
+    position:absolute;
+    left:180px;
+    top:10px;
+}
+.appoint{
     position : absolute;
     left : 200px;
-    top : 250px;
-    display : flex;
-    justify-content: space-between;
+    top:200px;
+    height:300px;
+    width:100%;
+    display : grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin:15px;
+}
+ #roomhead{
+    position : absolute;
+    top:10px;
+    left : 200px;
+    padding :20px;
+}
+#greeting{
+    position:absolute;
+    top:450px;
+    left:500px;
+    font-size:40px;
+    color:blue;
+}
+#link{
+    height:40px;
+    width:190px;
+    padding:30px;
+    border-radius:20px;
+    background-color:white;
+}
+#heads{
+    position:absolute;
+    top:300px;
+    left:100px;
+    color:black;
+}
+#admin{
+    position:absolute;
+    left:0px;
+    top:450px;
+    height:200px;
+    width:250px;
+    background-color:skyblue;
+    border-radius:45px;
+    padding:30px;
+}
+#adminlink{
+    height:40px;
+    width:190px;
+    padding:30px;
+    border-radius:20px;
+    background-color:white;
+}
+#patientpage{
+    position:absolute;
+    top:520px;
+    height:350px;
+    width:350px;
+    background-color:skyblue;
+    border-radius:45px;
+    padding:30px;
 }
 #paragraph{
     position : absolute;
     top:130px;
     left : 270px;
 }
+#homebody{
+    height:1300px;
+    width:800px;
+}
+#main{
+    position:absolute;
+    top:40px;
+    left:100px;
+    height:880px;
+    width:780px;
+    border-radius:50px;
+    padding:50px;
+    background-color:white;
+}
+#bodies{
+    background-color:skyblue;
+}
+.appoints{
+    padding:30px;
+    width:280px;
+    height:280px;
+    border-radius:80px;
+    background-color:white;
+    border:8px solid darkblue;
+    background-color:#84bfac;
+}
+.appoints:hover{
+    background-color:#107e94;
+    color:white;
+}
+#backgroundimg{
+    background-image:url('bluebk.webp');
+    background-size:cover;
+}
+.fa-solid.fa-hotel{
+    position:absolute;
+    left:100px;
+    top:19px;
+}
+#footer{
+    color:white;
+    background-color:darkblue;
+    position:absolute;
+    top:750px;
+    left:0px;
+    width:1500px;
+    height:150px;
+    padding:20px;
+}
+.fa-regular.fa-circle-check{
+    position:absolute;
+    left:60px;
+    top:0px;
+    font-size:25px;
+}
+#footerkid{
+    position:absolute;
+    left:500px;
+}
 .fa-solid.fa-calendar-check{
     font-size : 40px;
     color : darkblue
+}
+#patient{
+    background-color:#a4d4de;
+    width:250px;
+    height:280px;
+    border-radius:35px;
+    padding:20px;
+    position:absolute;
+    left:120px;
+    top:250px;
+}
+#patient:hover{
+    border:8px solid #0e3761;
+}
+#appdiv{
+    background-color:#a4d4de;
+    width:250px;
+    height:280px;
+    border-radius:35px;
+    padding:20px;
+    position:absolute;
+    left:490px;
+    top:250px;
+}
+#appdiv:hover{
+    border:8px solid #0e3761;
+}
+#docinfodiv{
+    background-color:#a4d4de;
+    width:250px;
+    height:280px;
+    border-radius:35px;
+    padding:20px;
+    position:absolute;
+    left:120px;
+    top:600px;
+}
+#docinfodiv:hover{
+    border:8px solid #0e3761;
+}
+#seeppoindiv{
+    background-color:#a4d4de;
+    width:250px;
+    height:280px;
+    border-radius:35px;
+    padding:20px;
+    position:absolute;
+    left:490px;
+    top:600px;
+}
+#seeppoindiv:hover{
+    border:8px solid #0e3761;
 }
 #apphead{
     position: absolute;
     top:80px;
     left :200px;
 }
+.docsinfopatients{
+    width:235px;
+    height:235px;
+    border-radius:30px;
+    padding:20px;
+    /* background-color:#c71657; */
+    position:absolute;
+    left:500px;
+    top:200px;
+    border:2px solid #f57fa8;
+}
+.docsinfopatients:hover{
+    border:10px solid #f57fa8;
+}
+#docinfoforpatients{
+    background-image:url('pinkbk.jpg');
+    background-size:cover;
+}
 input{
     width : 270px;
     height : 35px;
     border-radius: 25px;
+}
+#ranwidgets{
+    position:absolute;
+    top:90px;
+    left:200px;
+    color:blue;
+}
+#floorraninfo{
+    position:absolute;
+    top:5px;
+    left:180px;
+}
+#line2{
+    color:blue;
+}
+#line{
+    width:100%;
+    position:absolute;
+    top:170px;
+    left:180px;
+    color:#548396;
+}
+.floorsinfo{
+    position:absolute;
+    top:160px;
+    left:180px;
+}
+.flinofs{
+    height:250px;
+    width:400px;
+    padding:30px;
+    border-radius: 50px;
+    border:0.5px solid black;
+    color:#214d66;
+}
+.flinofs:hover{
+    border:8px solid #214d66;
 }
 button{
     width : 160px;
@@ -199,12 +695,51 @@ button{
     border-radius : 10px;
     background-color : #67819c;
 }
-#urls{
+.roomsinfo{
+    position:absolute;
+    left : 180px;
+    top:200px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    margin:20px;
+    gap:20px;
+    height:300px;
+    width:1000px;
+}
+.roominfo1{
+    margin:20px;
+    height:300px;
+    width:300px;
+    padding:30px;
+    border-radius:50px;
+    border:0.5px solid black;
+    color:#c71657;
+}
+/* body{
+    min-height:100vh;
+    display:flex;
+} */
+.roominfo1:hover{
+    border:8px solid #c71657;
+}
+.roominfo2{
+    margin:20px;
+    height:440px;
+    width:350px;
+    padding:30px;
+    border-radius:50px;
+    border:0.5px solid black;
+    color:#055f85;
+}
+.roominfo2:hover{
+    border:8px solid #055f85;
+}
+.urls{
     background-color:royalblue;
-    height : 1500px;
     width : 150px;
     color : white;
     padding:10px;
+    flex-shrink:0;
 }
 #bar{
     position : absolute;
@@ -279,7 +814,7 @@ button{
     height : 100px;
     width : 180px;
 }
-#roomed{
+/* #roomed{
     position : absolute;
     top : 150px;
     left : 200px;
@@ -305,14 +840,8 @@ button{
     height : 200px;
     width : 800px;
     justify-content : space-between;
-}
-#roomhead{
-    position : absolute;
-    top:10px;
-    left : 200px;
-    padding :20px;
-}
-#door{
+} */
+/* #door{
     font-size: 40px;
     color : darkblue;
 }
@@ -321,18 +850,18 @@ button{
     border-radius : 15px;
     height : 150px;
     width : 200px;
-    padding :20px;
-    color : blue;
-}
-#roomtype{
+    /* padding :20px; */
+    /* color : blue; */
+/* } */
+/* #roomtype{
     border : 1px solid rgb(173, 152, 152);
     border-radius : 15px;
     height : 150px;
     width : 200px;
     padding :20px;
     color :darkcyan
-}
-#roomnum{
+} */ 
+/* #roomnum{
     border : 1px solid rgb(173, 152, 152);
     border-radius : 15px;
     height : 150px;
@@ -353,18 +882,18 @@ button{
     border-radius : 15px;
     height : 150px;
     width : 200px;
-    padding :20px;
-    color :darkturquoise
-}
-#occbeds{
+    padding :20px; */
+    /* color :darkturquoise
+} */
+/* #occbeds{
     border : 1px solid rgb(173, 152, 152);
     border-radius : 15px;
     height : 150px;
     width : 200px;
     padding :20px;
     color :goldenrod;
-}
-#avbeds{
+} */
+/* #avbeds{
     border : 1px solid rgb(173, 152, 152);
     border-radius : 15px;
     height : 150px;
@@ -387,7 +916,7 @@ button{
     width : 200px;
     padding :20px;
     color :salmon;
-}
+} */
 #hell{
     position : absolute;
     height : 9px;
@@ -421,12 +950,12 @@ button{
 .fa-solid.fa-money-check-dollar{
     font-size : 40px;
 }
-#bedhead{
+/* #bedhead{
     position : absolute;
-    top : 10px;
+    /* top : 10px;
     left : 200px;
-}
-#maindiv2{
+} */
+/* #maindiv2{
     position : absolute;
     top : 300px;
     width : 1000px;
@@ -448,8 +977,8 @@ button{
     border : 1px solid rgb(123, 128, 143);
     border-radius : 15px;
     width : 200px;
-    height : 150px;
-    padding : 20px;
+    height : 150px; */
+    /* padding : 20px;
     color :crimson
 }
 #bednum{
@@ -487,18 +1016,18 @@ button{
     height : 150px;
     padding : 20px;
     color :#8e57ad;
-}
+} */
 .fa-solid.fa-calendar-xmark{
     font-size : 40px;
 }
-#disdate{
+/* #disdate{
     border : 1px solid rgb(196, 169, 169);
     border-radius : 15px;
     width : 200px;
     height : 150px;
     padding : 20px;
     color :mediumorchid;
-}
+} */
 .fa-solid.fa-list-ol{
     font-size : 40px;
 }
@@ -508,7 +1037,7 @@ button{
     display : flex;
     justify-content: space-evenly;
 }
-#nurperinfo{
+/* #nurperinfo{
     height : 170px;
     width : 1100px;
     display : flex;
@@ -521,8 +1050,8 @@ button{
     height : 100px;
     padding : 20px;
     color :#83d166;
-}
-#dateofbir{
+} */
+/* #dateofbir{
     border : 1px solid rgb(196, 169, 169);
     border-radius : 15px;
     width : 100px;
@@ -537,8 +1066,8 @@ button{
     height : 100px;
     padding : 20px;
     color :brown;
-}
-#gender{
+} */
+/* #gender{
     border : 1px solid rgb(196, 169, 169);
     border-radius : 15px;
     width : 100px;
@@ -560,8 +1089,8 @@ button{
     width : 100px;
     height : 100px;
     padding : 20px;
-    color:grey;
-}
+    color:grey; */
+/* }
 #nationality{
     border : 1px solid rgb(196, 169, 169);
     border-radius : 15px;
@@ -572,16 +1101,16 @@ button{
 }
 #patint{
     position : absolute;
-    top : 210px;
-}
+    top : 210px; */
+/* }
 #nuresinfo{
     height : 170px;
     width : 1500px;
     border : 2px solid black;
     display : flex;
     position: absolute;
-    top: 300px;
-    justify-content : space-evenly;
+    top: 300px; */
+    /* justify-content : space-evenly;
     color:red;
 }
 #phnum{
@@ -598,8 +1127,8 @@ button{
     width : 125px;
     height : 80px;
     padding : 20px;
-    color:darkslategrey
-}
+    color:darkslategrey */
+/* }
 #add{
     border : 1px solid rgb(196, 169, 169);
     border-radius : 15px;
@@ -617,8 +1146,8 @@ button{
     color:#67819c
 }
 #country{
-    border : 1px solid rgb(196, 169, 169);
-    border-radius : 15px;
+    border : 1px solid rgb(196, 169, 169); */
+    /* border-radius : 15px;
     width : 80px;
     height : 80px;
     padding : 20px;
@@ -678,7 +1207,7 @@ button{
     height : 80px;
     padding : 20px;
     color:darkcyan;
-}
+} */
 #medi{
     position : absolute;
     top : 490px;
@@ -727,7 +1256,7 @@ button{
     height : 120px;
     padding : 20px;
 }
-#numinfo{
+/* #numinfo{
     width : 1200px;
     height : 170px;
     display : flex;
@@ -741,14 +1270,14 @@ button{
     width : 120px;
     height : 120px;
     padding : 20px;
-}
+} */
 /* /* #nuempinfo{  suspesion on this one 💖😷😂💋🤢🙌🩺✔💖💧😂💋🐱‍🚀🤢✨ */
     /* width : 1500px;
     height : 170px;
     border : 2px solid black;
     display : flex;
     justify-content: space-evenly; */
-#phnum{
+/* #phnum{
     border : 1px solid rgb(196, 169, 169);
     border-radius : 15px;
     width : 120px;
@@ -775,8 +1304,8 @@ button{
     width : 120px;
     height : 120px;
     padding : 20px;
-}
-#nucoun{
+} */
+/* #nucoun{
     border : 1px solid rgb(196, 169, 169);
     border-radius : 15px;
     width : 120px;
@@ -798,8 +1327,8 @@ button{
     width : 120px;
     height : 120px;
     padding : 20px;
-}
-#nudep{
+} */
+/* #nudep{
     border : 1px solid rgb(196, 169, 169);
     border-radius : 15px;
     width : 120px;
@@ -819,8 +1348,8 @@ button{
     width : 120px;
     height : 120px;
     padding : 20px;
-}
-#nuexp{
+} */
+/* #nuexp{
     border : 1px solid rgb(196, 169, 169);
     border-radius : 15px;
     width : 120px;
@@ -839,8 +1368,8 @@ button{
     border-radius : 15px;
     width : 120px;
     height : 120px;
-    padding : 20px;
-}
+    padding : 20px; */
+/* }
 #sal{
     border : 1px solid rgb(196, 169, 169);
     border-radius : 15px;
@@ -880,8 +1409,8 @@ button{
 #pageurl{
     position : absolute;
     top : 900px;
-}
-#ainfo{
+} */
+/* #ainfo{
     width : 1100px;
     height : 230px;
     display : flex;
@@ -911,8 +1440,8 @@ button{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
-}
-#ambmanyear{
+}ainfo */
+/* #ambmanyear{
     width: 170px;
     height : 170px;
     padding : 20px;
@@ -930,12 +1459,12 @@ button{
     width : 1100px;
     height : 230px;
     display : flex;
-    justify-content : space-evenly;
-    position : absolute;
+    justify-content : space-evenly; */
+    /* position : absolute;
     top : 350px;
     left : 0px;
-}
-#asshosp{
+} */
+/* #asshosp{
     width: 170px;
     height : 170px;
     padding : 20px;
@@ -953,8 +1482,8 @@ button{
     width: 170px;
     height : 170px;
     padding : 20px;
-    border : 1px solid rgb(114, 98, 87);
-    border-radius : 25px;
+    border : 1px solid rgb(114, 98, 87); */
+    /* border-radius : 25px;
 }
 #ambservice{
     width : 1100px;
@@ -975,8 +1504,8 @@ button{
 #nxtservicedt{
     width: 170px;
     height : 170px;
-    padding : 20px;
-    border : 1px solid rgb(114, 98, 87);
+    padding : 20px; */
+    /* border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
 }
 #mainnotes{
@@ -992,108 +1521,229 @@ button{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+} */
+#FatherDivMother{
+    position:absolute;
+    left:180px;
+    top:150px;
+    display:grid;
+    grid-template-columns: repeat(5,1fr);
+    gap:20px;
 }
-#nurseperdata{
+.docsgeninfo{
+    width:300px;
+    height:300px;
+    border-radius:50px;
+    border:0.5px solid black;
+    background-color:#107e94;
+    padding:20px;
+}
+.motherMeds{
+    position:absolute;
+    top:200px;
+    left:200px;
+    width:450px;
+    height:450px;
+    border:0.5px solid black;
+    border-radius:50px;
+    padding:50px;
+}
+#headings{
+    position:absolute;
+    top:10px;
+    left:180px;
+}
+.motherMeds:hover{
+    border:8px solid blue;
+}
+.docsgeninfo:hover{
+    border:10px solid #8ecdf5
+}
+.docsotherinfo{
+    width:300px;
+    height:300px;
+    border-radius:50px;
+    border:0.5px solid black;
+    background-color:#107e94;
+    padding:20px;
+}
+.docsotherinfo:hover{
+    border:10px solid #8ecdf5;
+}
+.doctorsproinfo{
+    width:400px;
+    height:450px;
+    border-radius:50px;
+    border:0.5px solid black;
+    background-color:#107e94;
+    padding:20px;
+}
+.doctorsproinfo:hover{
+    border:10px solid #8ecdf5;
+}
+.docsworkinfo{
+    width:300px;
+    height:300px;
+    border-radius:50px;
+    border:0.5px solid black;
+    background-color:#107e94;
+    padding:20px;
+}
+.docsworkinfo:hover{
+    border:10px solid #8ecdf5;
+}
+ #maindivofdep{
+    position:absolute;
+    left:200px;
+    top:10px;
+ }
+ .depin{
+    height:550px;
+    width:380px;
+    border:0.5px solid black;
+    border-radius:50px;
+    padding:20px;
+    color:#ab055b;
+    background-color:#fc9dc6;
+ }
+ .depin:hover{
+    border:10px solid #ab055b;
+ }
+ .maindiv{
+    position:absolute;
+    top:50px;
+    left:250px;
+    padding:50px;
+ }
+.nurseperdata{
     display : grid;
     grid-template-columns : repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
     margin : 20px;
+    color:#296363;
 }
-#recepname{
+.recepname{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    color:#296363;
 }
-#recpBirthOfDate{
+.recpBirthOfDate{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    color:#296363;
 }
-#recepnation{
+.recepnation{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    color:#296363
 }
-#recepgender{
+.recepgender{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    color:#296363;
 }
-#ContInfo{
+.ContInfo{
     display : grid;
     grid-template-columns : repeat(auto-fit,minmax(250px,1fr));
     gap : 20px;
     margin-top : 20px;
+    width:1100px;
+    height:400px;
+    justify-items:stretch;
 }
-#recepOhNumber{
+.recepOhNumber{
+    padding : 20px;
+    border : 1px solid rgb(114, 98, 87);
+    border-radius : 25px;
+    color:mediumblue;
+}
+.recepEmail{
+    padding : 20px;
+    border : 1px solid rgb(114, 98, 87);
+    border-radius : 25px;
+    color:mediumblue;
+}
+.receAdd{
+    color:mediumblue;
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
 }
-#recepEmail{
+.recepCity{
+    color:mediumblue;
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
 }
-#receAdd{
-    padding : 20px;
-    border : 1px solid rgb(114, 98, 87);
-    border-radius : 25px;
-}
-#recepCity{
-    padding : 20px;
-    border : 1px solid rgb(114, 98, 87);
-    border-radius : 25px;
-}
-#reCountry{
+.reCountry{
+    color:mediumblue;
     padding : 20px;
     width : 200px;
     height : 119px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
 }
-#recepEmCOn{
+.recepEmCOn{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    grid-column:span 10;
+    color:mediumblue;
 }
-#recepEmerContnum{
+.recepEmerContnum{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    grid-column:span 10;
+    height:140px;
+    width:160px;
+    color:mediumblue;
 }
-#nurseEmpInfo{
+.tetingdiv{
+    height:300px;
+    width:300px;
+}
+.nurseEpInfo{
     display : grid;
     grid-template-columns : repeat(auto-fit,minmax(250px , 1fr));
     gap : 20px;
     margin-top : 20px;
 }
-#recepStat{
+.recepStat{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    color:#4f2263;
 }
-#rcepJoinDate{
+.rcepJoinDate{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    color:#4f2263;
 }
-#recepSalary{
+.recepSalary{
     padding : 20px;
      border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    color:#4f2263;
 }
-#recepShiftstrt{
+.recepShiftstrt{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    color:#4f2263;
 }
-#recepShiftEnd{
+.recepShiftEnd{
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
+    color:#4f2263;
 }
-#floorinfo{
+/* #floorinfo{
     display : grid;
     grid-template-columns : repeat(auto-fit,minmax(250px,1fr));
     gap : 20px;
@@ -1113,12 +1763,12 @@ button{
     border-radius : 25px;
 }
 #floorsdec{
-    height : 150px;
-    width : 150px;
+    /* height : 150px; */
+    /* width : 150px;
     padding : 20px;
     border : 1px solid rgb(114, 98, 87);
     border-radius : 25px;
-}
+} */
 .fa-solid.fa-elevator{
     font-size : 40px;
 }

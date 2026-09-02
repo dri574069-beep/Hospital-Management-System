@@ -10,22 +10,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <h1>Floors information</h1>
-    {% for floor in floors %}
-    <div id="floorinfo">
-        <div id="floorname">
-        <p><i class="fa-solid fa-elevator"></i>  Floor name</p>
-        <h3>{{floor.floor_name}}</h3>
-        </div>
-        <div id="floorn">
-        <strong><i class="fa-solid fa-stairs"></i> Floor number</strong>
-        <h3>{{floor.floor_num}}</h3>
-        </div>
-        <div id="floorsdec">
-        <strong><i class="fa-solid fa-pen-to-square"></i> Floor description</strong>
-        <h3>{{floor.floor_description}}</h3>
-        </div>
+     <div class="urls">
+        <i class="fa-solid fa-circle-plus"></i>Hospital Care
+        <br><br>
+        {% for name in names %}
+            <a class="a" href="{% url 'ShowDocsInfo' name.id %}"><i class="fa-solid fa-circle-dot"></i>  {{name}}</a>
+        {% endfor %}
+        <br><br>
+        <a class="a" href="{% url 'doctorsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter docotrs data</a>
+        <br><br>
+        {% for data in dataas %}
+            <a class="a" href="{% url 'showDepartmentInfo' data.department_name %}"><i class="fa-solid fa-circle-dot"></i> {{data}}</a>
+        {% endfor %}
+        <br><br>
+        <a class="a" href="{% url 'dep_forms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Departments</a>
+        <br><br>
+        <a class="a" href="{% url 'fetchRecapPerInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter receptionist data</a>
+        <br><br>
+        <a class="a" href="{% url 'makeambforms' %}"><i class="fa-solid fa-circle-dot"></i>Enter ambulance data</a>
+        <br><br>
+        <a class="a" href="{% url 'enterNurseInfo' %}"><i class="fa-solid fa-circle-dot"></i>Enter nurse data</a>
+        <br><br>
+        <a class="a" href="{% url 'FloorInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter floors data</a>
+        <br><br>
+        <a class="a" href="{% url 'bedsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Beds Data</a>
+        <br><br>
+        <a class="a" href="{% url 'roomsForm' %}"><i class="fa-solid fa-circle-dot"></i>  Enter rooms info</a>
+        <br><br>
+        <a class="a" href="{% url 'showappointmentforadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Check all booked appointments</a>
+        <br><br>
+        <a class="a" href="{% url 'patientinfotpadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Patients Data</a>
     </div>
+    <div id="floorraninfo">
+
+        <h1>Floors information</h1>
+        <p>⚠ press f5 or Win+shift+R to see changes</p>
+        <p>See the floors information</p>
+        <hr id="line2" width="1300">
+    </div>
+    <br><br>
+    <div class="floorsinfo">
+    {% for floor in floors %}
+    <div class="flinofs">
+        <pre><i class="fa-solid fa-elevator"></i><strong>Floor name  :   {{floor.floor_name}}</strong></pre>
+        <br>
+        <pre><i class="fa-solid fa-stairs"></i> <strong>Floor number   :  {{floor.floor_num}}</strong></pre>
+        <br>
+        <pre><i class="fa-solid fa-pen-to-square"></i> <strong>Floor description   :  {{floor.floor_description}}</strong></pre>
+        </div>
+        <form method="POST" action="{% url 'delFloorsInfo' %}">
+            {% csrf_token %}
+            <input type="hidden" name="floorId" value="{{floor.id}}">
+            <button type="submit">Delete floor {{floor.floor_num}}</button>
+        </form>
     {% endfor %}
+    </div>
 </body>
 </html>

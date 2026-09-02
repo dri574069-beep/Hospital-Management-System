@@ -7,37 +7,99 @@
     {% load static %}
 
     <link rel="stylesheet" href="{% static 'style.CSS' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <h3>Doctors information</h3>
+    <div class="urls">
+        <i class="fa-solid fa-circle-plus"></i>Hospital Care
+        <br><br>
+        {% for name in names %}
+            <a class="a" href="{% url 'ShowDocsInfo' name.id %}"><i class="fa-solid fa-circle-dot"></i>  {{name}}</a>
+        {% endfor %}
+        <br><br>
+        <a class="a" href="{% url 'doctorsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter docotrs data</a>
+        <br><br>
+        {% for data in dataas %}
+            {% if data.department_name %}
+            <a class="a" href="{% url 'showDepartmentInfo' data.department_name %}"><i class="fa-solid fa-circle-dot"></i> {{data}}</a>
+            {% endif %}
+        {% endfor %}
+        <br><br>
+        <a class="a" href="{% url 'dep_forms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Departments</a>
+        <br><br>
+        <a class="a" href="{% url 'fetchRecapPerInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter receptionist data</a>
+        <br><br>
+        <a class="a" href="{% url 'makeambforms' %}"><i class="fa-solid fa-circle-dot"></i>Enter ambulance data</a>
+        <br><br>
+        <a class="a" href="{% url 'enterNurseInfo' %}"><i class="fa-solid fa-circle-dot"></i>Enter nurse data</a>
+        <br><br>
+        <a class="a" href="{% url 'FloorInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter floors data</a>
+        <br><br>
+        <a class="a" href="{% url 'bedsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Beds Data</a>
+        <br><br>
+        <a class="a" href="{% url 'roomsForm' %}"><i class="fa-solid fa-circle-dot"></i>  Enter rooms info</a>
+        <br><br>
+        <a class="a" href="{% url 'showappointmentforadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Check all booked appointments</a>
+        <br><br>
+        <a class="a" href="{% url 'patientinfotpadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Patients Data</a>
+    </div>
+    <hr style="width:1300px;position:absolute;left:180px;top:130px;">
+    <h1 style="position:absolute;left:500px;top:5px"><i class="fa-solid fa-user-doctor"></i>   Doctors information</h1>
+    <div style="position:absolute;left:200px;top:50px;">
+        <p>Refresh to see changes</p>
+        <p style="color:blue">Information about doctors</p>
+    </div>
+    <div id="FatherDivMother">
+    <br><BR>
     {% for data in datas %}
+    <div class="docsgeninfo">
             <p> Name : {{data}}</p>
             <p>Specialization : {{data.specialization}}</p>
             <p>Gender : {{data.gender}}</p>
             <p>Date of birth : {{data.date_of_birth}}</p>
             <p>Nationality : {{data.nationality}}</p>
+            <form method="POST" action="{% url 'delDoctor' %}">
+                {% csrf_token %}
+                <input type="hidden" name="docId" value="{{data.id}}">
+                <button type="submit">delete</button>
+            </form>
+    </div>
     {% endfor %}
     <br>
-    <h3>doctors contact information</h3>
     {% for cons in con_tact %}
+    <div class="docsotherinfo">
+    <h3>doctors contact information</h3>
         <p>Number : {{cons}}</p>
         <p>EMail : {{cons.email}}</p>
         <p>Address : {{cons.address}}</p>
         <p>City : {{cons.city}}</p>
         <p>Country : {{cons.country}}</p>
+        <form method="POST" action="{% url 'delDoctor' %}">
+                {% csrf_token %}
+                <input type="hidden" name="docId" value="{{cons.id}}">
+                <button type="submit">delete</button>
+            </form>
+    </div>
     {% endfor %}
     <br>
-    <h3>doctors profession information</h3>
     {% for pro_data in pro_datas %}
+    <div class="doctorsproinfo">
+    <h3>doctors profession information</h3>
         <p>Qualification : {{pro_data}}</p>
         <p>Department : {{pro_data.department}}</p>
         <p>Medical Lisence number : {{pro_data.medical_lincense_num}}</p>
         <p>University : {{pro_data.university}}</p>
         <p>Years of experience : {{pro_data.years_of_experience}}</p>
-        <p>Consultation fees : {{pro_data.consultation_fee}}</p>
         <p>Biography : {{pro_data.biography}}</p>
+        <form method="POST" action="{% url 'delDoctor' %}">
+                {% csrf_token %}
+                <input type="hidden" name="docId" value="{{pro_data.id}}">
+                <button type="submit">delete</button>
+        </form>
+    </div>
     {% endfor %}
     {% for doc in docs %}
+    <div class="docsworkinfo">
         <p>Status : {{doc}}</p>
         <p>Joining Date : {{doc.joining_date}}</p>
         <p>employment type : {{doc.employment_type}}</p>
@@ -46,7 +108,8 @@
         <p>workingDays : {{doc.workingDays}}</p>
         <p>start time : {{doc.start_time}}</p>
         <p>end time : {{doc.end_time}}</p>
+    </div>
     {% endfor %}
-    <a href="{% url 'makeDoctorsForms' %}">store more info</a>
+    </div>
 </body>
 </html>

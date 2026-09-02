@@ -9,8 +9,17 @@
     <link rel="stylesheet" href="{% static 'style.CSS' %}">
 </head>
 <body>
+    {% for e in patientemer %}
+        {{e}}
+    {% endfor %}
+    {% for c in patientcon %}
+        {{c}}
+    {% endfor %}
+    {% for m in patientMed %}
+        {{m}}
+    {% endfor %}
     <p>enter the info </p>
-    <form method="POST" action="{% url  'patientdataForms' %}">
+    <form method="POST" action="{% url  'patientdataForms' id %}">
     {% csrf_token %}
     {{Infos.as_p}}
     <br>

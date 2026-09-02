@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rooms info</title>
+    <title>medecines Information</title>
     {% load static %}
-
     <link rel="stylesheet" href="{% static 'style.CSS' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -41,41 +40,31 @@
         <br><br>
         <a class="a" href="{% url 'patientinfotpadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Patients Data</a>
     </div>
-    <h1 id="roomhead"><i class="fa-solid fa-door-closed" id="door"></i>  Rooms information</h1>
-    <div id="ranwidgets">
-    <p>⚠ Press f5 or Win+shift+R to see changes</p>
-    <p>see all information</p>
+    <div id="headings">
+        <h1><i class="fa-solid fa-pills"></i>    Medicines Data</h1>
+        <p style="color:blue;">Refresh to see changes</p>
+        <hr style="width:1300px;">
     </div>
-    <hr id="line">
-    <br><br><br><br>
-    <div class="roomsinfo">
-    {% for room in rooms %}
-    <div class="roominfo1">
-        <pre><i class="fa-solid fa-bed"></i><strong>Room type  :  {{room}}</strong></pre>
+    {% for m in med %}
+    <div class="motherMeds">
+    <p>Medicines information</p>
+        <p><i class="fa-solid fa-star"></i>  name : {{m.medicine_name}}</p>
+        <p><i class="fa-solid fa-star"></i>  generic name : {{m.generic_name}}</p>
+        <p><i class="fa-solid fa-star"></i>  category : {{m.category}}</p>
+        <p><i class="fa-solid fa-star"></i>  Dosage : {{m.dosage_form}}</p>
+        <p><i class="fa-solid fa-star"></i>  strength : {{m.strength}}</p>
+        <p><i class="fa-solid fa-star"></i>  manufacturer : {{m.manufacturer}}</p>
+        <p><i class="fa-solid fa-star"></i>  quantity in stock : {{m.quantity_in_stock}}</p>
+        <p><i class="fa-solid fa-star"></i>  unit price : {{m.unit_price}}</p>
+        <p><i class="fa-solid fa-star"></i>  expiry date : {{m.expiry_date}}</p>
+        <p><i class="fa-solid fa-star"></i>  prescription required : {{m.prescription_required}}</p>
+        <p><i class="fa-solid fa-star"></i>  status : {{m.status}}</p>
         <br>
-        <pre><i class="fa-solid fa-door-closed"></i><strong>Room number :  {{room.room_number}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-stairs"></i><strong>Floor number :  {{room.floor_number}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-stethoscope"></i><strong>Department    :  {{room.department}}</strong></pre>
-        </div>
-        <div class="roominfo2">
-        <pre><i class="fa-solid fa-ring"></i><strong>Capacity :  {{room.capacity}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-bed"></i><strong>Occupied beds :  {{room.occupied_beds}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-bed"></i> <strong>Available beds    :   {{room.available_beds}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-house-medical-circle-check"></i><strong>Room status    :   {{room.room_status}}</strong></pre>
-        <br>
-        <pre><i class="fa-solid fa-money-check-dollar"></i><strong>Daily charge    :  {{room.daily_charge}}</strong></pre>
-        <form method="POST" action="{% url 'deleteRoomsInfos' %}">
-            {% csrf_token %}
-            <input type="hidden" name="roomId" value="{{room.id}}">
-            <button type="submit">Delete {{room.room_number}}</button>
+        <form method="POST" action="{% url 'deletemeds' %}">
+            <input type="hidden" name="medId" value="{{m.id}}">
+            <button type="submit">Delete medicine :  {{m.medicine_name}}</button>
         </form>
-        <br>
-        </div>
+        <BR><BR>
     {% endfor %}
     </div>
 </body>

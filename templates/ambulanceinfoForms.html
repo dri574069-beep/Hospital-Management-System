@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'style.CSS' %}">
 </head>
 <body>
-      <p>enter ambukance information</p> 
+      <p>enter ambulance information</p> 
       <form method="POST" action="{% url 'makeambforms' %}">
         {% csrf_token %}
         {{amb_info.as_p}}

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 #admin
@@ -9,12 +9,12 @@ class adminInfo(models.Model):
     password=models.CharField(max_length=450)
     def __str__(self):
         return self.name
-#user login info
-class login(models.Model):
-    email=models.EmailField()
-    password=models.CharField(max_length=300)
-    def __str__(self):
-        return self.email
+# #user login info
+class users_login(models.Model):
+      username=models.OneToOneField(User,on_delete=models.CASCADE,null=True,blank=True)
+      password=models.CharField(max_length=300)
+      def __str__(self):
+         return self.email
 #doctor info database
 class doctor_perinfo(models.Model):
     full_name=models.CharField(max_length=200)
@@ -48,12 +48,12 @@ class nurse_contact_info(models.Model):
     def __str__(self):
         return self.country
 class Department(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     department_name=models.CharField(max_length=200)
     department_code=models.CharField(max_length=100,null=True)
     department_head=models.CharField(max_length=200)
     description=models.TextField()
     location=models.CharField(max_length=250)
-    floor_number=models.CharField(max_length=200,null=True,blank=True)
     contact_number=models.CharField(max_length=150,null=True,blank=True)
     opening_time=models.TimeField(null=True)
     closing_time=models.TimeField(null=True)
@@ -75,11 +75,11 @@ class patient_info(models.Model):
         return self.full_name
 #beds info database
 class beds_info(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     bed_number=models.IntegerField()
     room_no=models.IntegerField()
     bed_type=models.CharField(max_length=200)
     floor_number=models.IntegerField()
-    department=models.CharField(max_length=200,null=True,blank=True)
     bed_status=models.CharField(max_length=200)
     patient=models.CharField(max_length=200,null=True,blank=True)
     assigned_date=models.DateField()
@@ -169,6 +169,7 @@ class doctors_schedule(models.Model):
     end_time=models.TimeField()
 #patient info database
 class patient_contact_info(models.Model):
+    pat_id=models.ForeignKey(patient_info,on_delete=models.CASCADE,null=True,blank=True)
     phone_number=models.CharField(max_length=200)
     email=models.EmailField()
     address=models.CharField(max_length=300)
@@ -177,11 +178,13 @@ class patient_contact_info(models.Model):
     def __str__(self):
         return self.phone_number
 class patient_emergency_con(models.Model):
+    pat_id=models.ForeignKey(patient_info,on_delete=models.CASCADE,null=True,blank=True)
     emergency_con_name=models.CharField(max_length=100)
     emergency_number=models.CharField(max_length=100)
     def __str__(self):
         return self.emergency_number
 class patient_Medical_info(models.Model):
+    pat_id=models.ForeignKey(patient_info,on_delete=models.CASCADE,null=True,blank=True)
     allergies=models.CharField(max_length=150,blank=True)
     medical_history=models.TextField(null=True,blank=True)
     current_medication=models.CharField(max_length=250,null=True,blank=True)
@@ -239,9 +242,9 @@ class recep_employ_info(models.Model):
     def __str__(self):
         return self.status
 class ambulance_info(models.Model):
-    ambulance_number=models.IntegerField()
+    ambulance_number=models.CharField(max_length=200)
     vehicle_model=models.CharField(max_length=200)
-    registration_number=models.IntegerField()
+    registration_number=models.CharField(max_length=200)
     manufacturing_year=models.DateField(0)
     capacity=models.CharField(max_length=200)
     def __str__(self):

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body id="hospbody">
-    <div id="urls">
+    <div class="urls">
         <i class="fa-solid fa-circle-plus"></i>Hospital Care
         <br><br>
         {% for name in names %}
@@ -26,27 +26,14 @@
         <br><br>
         <a class="a" href="{% url 'dep_forms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Departments</a>
         <br><br>
-        <a class="a" href="{% url 'ShowReceoOerData' %}"><i class="fa-solid fa-circle-dot"></i>  Receptionist data</a>
-        <br><br>
-        <a class="a" href="{% url 'fetchRecapPerInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter receptionist data</a>
-        <br><br>
-        <a class="a" href="{% url 'getAmbukancesInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Ambulance data</a>
         <br><br>
         <a class="a" href="{% url 'makeambforms' %}"><i class="fa-solid fa-circle-dot"></i>Enter ambulance data</a>
         <br><br>
-        <a class="a" href="{% url 'showNurseInfo' %}"><i class="fa-solid fa-circle-dot"></i>Nurse data</a>
-        <br><br>
         <a class="a" href="{% url 'enterNurseInfo' %}"><i class="fa-solid fa-circle-dot"></i>Enter nurse data</a>
-        <br><br>
-        <a class="a" href="{% url 'showFloorInfo' %}"><i class="fa-solid fa-circle-dot"></i>Floors data</a>
         <br><br>
         <a class="a" href="{% url 'FloorInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter floors data</a>
         <br><br>
-        <a class="a" href="{% url 'showbedsInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Beds Data</a>
-        <br><br>
         <a class="a" href="{% url 'bedsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Beds Data</a>
-        <br><br>
-        <a class="a" href="{% url 'showroomInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Rooms Data</a>
         <br><br>
         <a class="a" href="{% url 'roomsForm' %}"><i class="fa-solid fa-circle-dot"></i>  Enter rooms info</a>
         <br><br>
@@ -54,73 +41,80 @@
         <br><br>
         <a class="a" href="{% url 'patientinfotpadmin' %}"><i class="fa-solid fa-circle-dot"></i>  Patients Data</a>
     </div>
-    <pre id="bar"><i class="fa-solid fa-bars"></i>  <strong>Admin Dashboard</strong>                                                                                                                           <i class="fa-solid fa-circle-user"></i> Admin</pre>
+    <pre id="bar"><i class="fa-solid fa-bars"></i>  <strong>Admin Dashboard</strong>                                                                                            <i class="fa-solid fa-circle-user"></i> Admin</pre>
     <pre id="war"><i class="fa-solid fa-circle-info"></i>  <strong>To see the newly added doctors and departments please press f5 or Win+R</strong></pre>
     <br>
-    <p id="paras">click the names to see the information about the doctors</p>
-    {% for name in names %}
-    <a id="showdocturl" href="{% url 'ShowDocsInfo' name.id %}"><i class="fa-solid fa-user-doctor"></i>  <p>{{name}}</p></a>
-    <div id="adddoc"><a href="{% url 'doctorsInfoForms' %}">Enter more doctors</a></div>
-        <br><br>
-    {% endfor %}
     <br>
+    <div id="adddep">
+    <a  id="depforurl" href="{% url 'dep_forms' %}"><pre><i class="fa-solid fa-plus"></i>  Add departments</pre></a>
+    </div>
+    <br>
+    <p id="paras">click the names to see the information about the doctors</p>
+    <div id="docs">
+    {% for name in names %}
+    <a href="{% url 'ShowDocsInfo' name.id %}"><i class="fa-solid fa-user-doctor"></i>  {{name}}</a>
+    {% endfor %}
+     <br><br><br>
+    </div>
+    <div id="adddoc"><a href="{% url 'doctorsInfoForms' %}">Enter more doctors</a></div>
+    <br>
+    <div id="desinfo">
     <h1 id="dephead"><i class="fa-solid fa-hospital"></i>   Department</h1>
     {% for data in dataas %}
         {% if data.department_name %}
-         <a  id="depurl" href="{% url 'showDepartmentInfo' data.department_name %}"><i class="fa-solid fa-star"></i>      {{data}}</a>
+         <a  class="depurl" href="{% url 'showDepartmentInfo' data.department_name %}"><i class="fa-solid fa-star"></i>      {{data}}</a>
         {% endif %}
     {% endfor %}
-    <br>
-    <a  id="depforurl" href="{% url 'dep_forms' %}"><pre><i class="fa-solid fa-plus"></i>  enter more departments</pre></a>
-    <br>
+    <br><br><br>
+    </div>
     <br>
     <div id="recep">
-    <h3> recepotionist data</h3>
-    <a href="{% url 'ShowReceoOerData' %}"><i class="fa-solid fa-user-tie"></i><p>recepotionist data</p></a>
+        <p>see receptionists</p>
+    <a href="{% url 'recephome' %}"><i class="fa-solid fa-link"></i>  Receptionist data</a>
+    <br><Br>
     <a href="{% url 'fetchRecapPerInfo' %}"><i class="fa-solid fa-plus"></i> enter receptionist data</a>
     </div>
     <br>
     <br><br>
     <div id="ambinfo">
-    <p> ambulances information</p>
-    <br>
-    <a href="{% url 'getAmbukancesInfo' %}"><i class="fa-solid fa-truck-medical"></i> <strong>ambulances infromation</strong></a>
+    <p>see ambulances data</p>
+    <a href="{% url 'ambHome' %}"><i class="fa-solid fa-link"></i>  Ambulance</a>
     <br><br><br>
     <a href="{% url 'makeambforms' %}"><i class="fa-solid fa-plus"></i>   <strong>enter ambulance information</strong></a>
     </div>
     <br><br><br><br>
     <div id="nurseinfo">
-    <p> Nurse information</p>
-    <a href="{% url 'showNurseInfo' %}"><i class="fa-solid fa-user-nurse"></i> <strong>Nurse information</strong></a>
+        <p>see Nurses information</p>
+    <a href="{% url 'NurseHome' %}"><i class="fa-solid fa-link"></i>  Nurse information</a>
     <br><br><br>
     <a href="{% url 'enterNurseInfo' %}"><i class="fa-solid fa-plus"></i> <strong>enter nurse information</strong></a>
     </div>
     <br>
     <div id="seefloorinfo">
     <p> Floor infomation</p>
-    <a href="{% url 'showFloorInfo' %}"><i class="fa-solid fa-star"></i> <strong>see floor information</strong></a>
+    <a href="{% url 'floorsHome' %}"><i class="fa-solid fa-link"></i>  Floors data</a>
     <br><br><br>
-    <a href="{% url 'FloorInfo' %}"><i class="fa-solid fa-plus"></i> <strong>enter floor infomation</strong></a>
+    <a href="{% url 'FloorInfo' %}"><i class="fa-solid fa-plus"></i> <strong><i class="fa-solid fa-link"></i>  enter floor infomation</strong></a>
     </div>
     <br><br><br><br><br>
     <div id="seebedsinfo">
     <p>see beds information</p>
-    <a href="{% url 'showbedsInfo' %}"><i class="fa-solid fa-bed"></i> <strong>see beds information</strong></a>
+    <a href="{% url 'bedhome' %}"><i class="fa-solid fa-link"></i>    Beds Data</a>
     <br><br><br>
-    <a href="{% url 'bedsInfoForms' %}"><i class="fa-solid fa-plus"></i> <strong>enter beds information</strong></a>
+    <a href="{% url 'bedsInfoForms' %}"><i class="fa-solid fa-plus"></i> <strong>  enter beds information</strong></a>
     </div>
     <br>
     <div id="roomsinfo">
     <p>Rooms info</p>
-    <a href="{% url 'showroomInfo' %}"><i class="fa-solid fa-door-closed"></i> <strong>see rooms info</strong></a>
+    <a href="{% url 'roomshome' %}"><i class="fa-solid fa-door-closed"></i> <strong><i class="fa-solid fa-link"></i>  see rooms info</strong></a>
     <br><br><br>
-    <a href="{% url 'roomsForm' %}"><i class="fa-solid fa-plus"></i> <strong>enter rooms info</strong></a>
+    <a href="{% url 'roomsForm' %}"><i class="fa-solid fa-plus"></i> <strong> enter rooms info</strong></a>
     </div>
     <br>
     <div id="seebookedapp">
     <p>see booked appointments</p>
     <br>
-    <a href="{% url 'showappointmentforadmin' %}"><i class="fa-solid fa-book-medical"></i> <h3>booked appointments</h3></a>
+    <a href="{% url 'showappointmentforadmin' %}"><i class="fa-solid fa-book-medical"></i> <h3><i class="fa-solid fa-link"></i>  booked appointments</h3></a>
     </div>
     <br><br>
     <div id="patientinfo">
@@ -128,5 +122,13 @@
         <br>
         <a href="{% url 'patientinfotpadmin' %}"><i class="fa-solid fa-hospital-user"></i>   <strong>Patient info</strong></a>
     </div>
+    <div id="medicines" style="position:absolute;left:1100px;top:1100px;border-radius:120px;border:0.5px solid black;height:200px;width:200px;padding:50px;">
+        <p>see medicines data</p>
+        <a href="{% url 'medsHome' %}"><i class="fa-solid fa-link"></i>medicines data</a>
+        <br><BR><BR>
+        <p>enter medicines</p>
+        <a href="{% url 'medInfoForms' %}"><i class="fa-solid fa-link"></i>  Medicines</a>
+    </div>
+    <br><br>
 </body>
 </html>

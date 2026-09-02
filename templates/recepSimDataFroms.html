@@ -10,7 +10,7 @@
 </head>
 <body>
     <p>enter the following data for receptionist</p>
-    <form method="POST" action="{% url 'fetchnorrecepdata' %}">
+    <form method="POST" action="{% url 'fetchnorrecepdata' id %}">
         {% csrf_token %}
         {{SimDatas.as_p}}
         <button type="submit">save info</button>

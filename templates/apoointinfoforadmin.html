@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div id="urls">
+    <div class="urls">
         <i class="fa-solid fa-circle-plus"></i>Hospital Care
         <br><br>
         {% for name in names %}
@@ -25,27 +25,15 @@
         <br><br>
         <a class="a" href="{% url 'dep_forms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Departments</a>
         <br><br>
-        <a class="a" href="{% url 'ShowReceoOerData' %}"><i class="fa-solid fa-circle-dot"></i>  Receptionist data</a>
-        <br><br>
         <a class="a" href="{% url 'fetchRecapPerInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter receptionist data</a>
-        <br><br>
-        <a class="a" href="{% url 'getAmbukancesInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Ambulance data</a>
         <br><br>
         <a class="a" href="{% url 'makeambforms' %}"><i class="fa-solid fa-circle-dot"></i>Enter ambulance data</a>
         <br><br>
-        <a class="a" href="{% url 'showNurseInfo' %}"><i class="fa-solid fa-circle-dot"></i>Nurse data</a>
-        <br><br>
         <a class="a" href="{% url 'enterNurseInfo' %}"><i class="fa-solid fa-circle-dot"></i>Enter nurse data</a>
-        <br><br>
-        <a class="a" href="{% url 'showFloorInfo' %}"><i class="fa-solid fa-circle-dot"></i>Floors data</a>
         <br><br>
         <a class="a" href="{% url 'FloorInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Enter floors data</a>
         <br><br>
-        <a class="a" href="{% url 'showbedsInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Beds Data</a>
-        <br><br>
         <a class="a" href="{% url 'bedsInfoForms' %}"><i class="fa-solid fa-circle-dot"></i>  Enter Beds Data</a>
-        <br><br>
-        <a class="a" href="{% url 'showroomInfo' %}"><i class="fa-solid fa-circle-dot"></i>  Rooms Data</a>
         <br><br>
         <a class="a" href="{% url 'roomsForm' %}"><i class="fa-solid fa-circle-dot"></i>  Enter rooms info</a>
         <br><br>
@@ -56,9 +44,10 @@
     <pre id="bar"><i class="fa-solid fa-bars"></i>  <strong>Admin Dashboard</strong>                                                                                                                           <i class="fa-solid fa-circle-user"></i> Admin</pre>
     <br>
     <h1 id="apphead"><i class="fa-solid fa-calendar-check"></i>   Appointment info</h1>
+    <strong style="position:absolute;left:200px;top:70px">⚠ Press f5 or Win+shift+R to see the changes</strong>
     <p id="paragraph">View all booked appointments</p>
     <hr id="hr">
-    <div id="appoint">
+    <div class="appoint">
     {% for app in appointments %}
         <div id="patientname">
         <i class="fa-solid fa-circle-user"></i>
@@ -85,6 +74,11 @@
         <strong>Booked date</strong>
         <h3>{{app.booked_date}}</h3>
         </div>
+        <form method="POST" action="{% url 'deleteAppointmentsInfo' %}">
+            {% csrf_token %}
+            <input type="hidden" name="appId" value="{{app.id}}">
+            <button type="submit">Delete {{app.patient}} appointment</button>
+        </form>
     {% endfor %}
     </div>
 </body>

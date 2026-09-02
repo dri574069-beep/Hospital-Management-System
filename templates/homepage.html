@@ -7,23 +7,39 @@
     {% load static %}
 
     <link rel="stylesheet" href="{% static 'style.CSS' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <h1>Welcome</h1>
-    <p>please select your domain</p>
-        <br><br>
+<body id="homebody">
+    <div id="image">
+        <img src="{% static 'doctors.webp' %}"  width="1500" height="460">
+    </div>
+    <h1 id="heads"><i class="fa-solid fa-hospital"></i> Hospital Management System</h1>
+    <h1 id="greeting">Welcome</h1>
+    <br><BR><BR>
+    <div id="patientpage">
+        <h1><i class="fa-solid fa-clipboard-list"></i> Patient portal</h1>
         <div id="patinfo">
-        <p>patient can enter their information</p>
-        <p>they can book apointments</p>
-        <p>they can see available doctors</p>
-        <p>they can check their booked appointments</p>
-        <a href="{% url 'patient' %}">Link : <h3>patient home page</h3></a>
+        <p><i class="fa-solid fa-star"></i> patient can enter their information</p>
+        <p> <i class="fa-solid fa-star"></i> they can book appointments</p>
+        <p><i class="fa-solid fa-star"></i> they can see available doctors</p>
+        <p><i class="fa-solid fa-star"></i> they can check their booked appointments</p>
+        <br>
+        <div id="link">
+        <a href="{% url 'patient' %}"><i class="fa-solid fa-link"></i>  Link : <h3>patient home page</h3></a>
         </div>
-        <br><br>
-        <div>
-        <p><strong>Warning : only admin is allowed ⚠</strong></p>
+        </div>
+        <div id="admin">
+        <p><strong><i class="fa-solid fa-triangle-exclamation"></i> Warning : only admin is allowed</strong></p>
         <p>cannot provide data for security reasons</p>
-        <a href="{% url 'getAdminData' %}">admin page</a>
+        <div id="adminlink">
+        <a href="{% url 'getAdminData' %}"><i class="fa-solid fa-link"></i>  link:   <p>admin page</p></a>
+        </div>
+        </div>
+        <div id="footer">
+            <div id="footerkid">
+            <p><i class="fa-regular fa-circle-check"></i></p>
+            <h1>Islamabad Hospital</h1>
+            </div>
         </div>
 </body>
 </html>
