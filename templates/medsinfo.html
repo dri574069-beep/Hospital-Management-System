@@ -61,6 +61,7 @@
         <p><i class="fa-solid fa-star"></i>  status : {{m.status}}</p>
         <br>
         <form method="POST" action="{% url 'deletemeds' %}">
+            {% csrf_token %}
             <input type="hidden" name="medId" value="{{m.id}}">
             <button type="submit">Delete medicine :  {{m.medicine_name}}</button>
         </form>
