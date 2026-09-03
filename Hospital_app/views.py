@@ -121,13 +121,15 @@ def getData(name,date_of_birth,age,gender,blood_group,martial_status,nationality
 def hospitalHistory(request):
      return render(request,"HospitalHistory.html")
 def create_admin(request):
-    password=os.environ.get("newPassword")
-    new_pass=generate_password_hash(password)
-    admin=adminInfo.objects.create(
-        name=os.environ.get("NAME"),
-        email=os.environ.get("EMAIL"),
-        password=new_pass
-    )
+    if not adminInfo.objects.exists():
+          password=os.environ.get("newPassword")
+          new_pass=generate_password_hash(password)
+          admin=adminInfo.objects.create(
+               name=os.environ.get("NAME"),
+               email=os.environ.get("EMAIL"),
+               password=new_pass
+          )
+    return redirect("getAdminData")
 def getAdminData(request):
     adminForm=adminForms()
     admin=adminInfo.objects.first()
@@ -142,6 +144,17 @@ def getAdminData(request):
               email=adminForm.cleaned_data["email"]
               password=adminForm.cleaned_data["password"]
               if name==os.environ.get("NAME") and email==os.environ.get("EMAIL") and  check_password_hash(passw,password):
+                    user, created = User.objects.get_or_create(
+                              username="admin",
+                              defaults={"email": email}
+                    )
+
+                    if created:
+                         user.set_password(password)
+                         user.save()
+
+                    login(request, user)
+
                     print("welcome")
                     return redirect("show_docData")
               else:
