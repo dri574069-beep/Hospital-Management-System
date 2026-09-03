@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Hospital_app.views import user_login,patientData,getData,patientdataForms,importantPatientData,home,doctorsInfoForms,savingDoctorPerData,makingDoctorsForms,saveDoctorInfos,getAdminData,show_docData,dep_forms,savingDepInfo,ShowDocsInfo,showDepartmentInfo,fetchRecapPerInfo,fetchnorrecepdata,saveSimrecepData,ShowReceoOerData,makeambforms,addAmNorInfo,saveamNorInfo,getAmbukancesInfo,enterNurseInfo,showNurseInfo,makeNurseEmployForms,FloorInfo,showFloorInfo,bedsInfoForms,showbedsInfo,AppointmentForms,showappointinfo,medInfoForms,checkpass,roomsForm,showroomInfo,patient,showappointmentforadmin,showdocsinfo,patientinfotpadmin,showhospital,deletePatient,deletePatientContactInfo,deleteEmPatient,deletePatientMedInfos,deleteNursesData,deleteBurseCOntactInfo,deleteNurseEmpInfo,deleteNursesWorkInfo,deleteBedsInfo,deleteAppointmentsInfo,deleteRoomsInfos,delFloorsInfo,delRecepInfo,delRecepConInfo,deleteRecepEmpInfo,delAmb,delDep,delDoctor,showMeds,showroomInfo,recephome,ambHome,NurseHome,floorsHome,bedhome,medsHome,roomshome,hospitalHistory,deletemeds
+from Hospital_app.views import user_login,patientData,getData,patientdataForms,importantPatientData,home,doctorsInfoForms,savingDoctorPerData,makingDoctorsForms,saveDoctorInfos,getAdminData,show_docData,dep_forms,savingDepInfo,ShowDocsInfo,showDepartmentInfo,fetchRecapPerInfo,fetchnorrecepdata,saveSimrecepData,ShowReceoOerData,makeambforms,addAmNorInfo,saveamNorInfo,getAmbukancesInfo,enterNurseInfo,showNurseInfo,makeNurseEmployForms,FloorInfo,showFloorInfo,bedsInfoForms,showbedsInfo,AppointmentForms,showappointinfo,medInfoForms,checkpass,roomsForm,showroomInfo,patient,showappointmentforadmin,showdocsinfo,patientinfotpadmin,showhospital,deletePatient,deletePatientContactInfo,deleteEmPatient,deletePatientMedInfos,deleteNursesData,deleteBurseCOntactInfo,deleteNurseEmpInfo,deleteNursesWorkInfo,deleteBedsInfo,deleteAppointmentsInfo,deleteRoomsInfos,delFloorsInfo,delRecepInfo,delRecepConInfo,deleteRecepEmpInfo,delAmb,delDep,delDoctor,showMeds,showroomInfo,recephome,ambHome,NurseHome,floorsHome,bedhome,medsHome,roomshome,hospitalHistory,deletemeds,create_admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',user_login,name="user_login"),
@@ -29,7 +29,7 @@ urlpatterns = [
     path('saveDoctorInfos/',saveDoctorInfos,name="saveDoctorInfos"),
     path('makingDoctorsForms/<int:id>/',makingDoctorsForms,name="makingDoctorsForms"),
     path('savingDoctorPerData/',savingDoctorPerData,name="savingDoctorPerData"),
-    # path('create_admin/',create_admin,name="create_admin"),
+    path('create_admin/',create_admin,name="create_admin"),
     path('dep_forms/',dep_forms,name="dep_forms"),
     path('savingDepInfo/',savingDepInfo,name="savingDepInfo"),
     path('ShowDocsInfo/<int:id>/',ShowDocsInfo,name="ShowDocsInfo"),
