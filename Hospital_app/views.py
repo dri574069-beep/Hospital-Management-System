@@ -661,7 +661,7 @@ def roomsForm(request):
                room_status=room.cleaned_data["room_status"]
                daily_charge=room.cleaned_data["daily_charge"]
                saveinfo(request,room_number,room_type,floor_number,department,capacity,occupied_beds,available_beds,room_status,daily_charge)
-     return render(request,"roomsform.html",{"room":room})
+     return render(request,"roomsForm.html",{"room":room})
 def saveinfo(request,room_number,room_type,floor_number,department,capacity,occupied_beds,available_beds,room_status,daily_charge):
      roomsInfo=room_info.objects.create(
           room_number=room_number,
