@@ -558,17 +558,17 @@ def AppointmentForms(request):
                appointment_time=appointinfo.cleaned_data["appointment_time"]
                reason_for_visit=appointinfo.cleaned_data["reason_for_visit"]
                booked_date=appointinfo.cleaned_data["booked_date"]
-               email=os.environ.get("EMAIL")
-               sender=email
-               email_password=os.environ.get("APP_PASSWORDS")
-               reciever=email
-               message=f"Some one booked an appointment : Patient name : {patient}  appointed_date : {appointment_date} appointment-time : {appointment_time}"
-               server=smtplib.SMTP("smtp.gmail.com",587)
-               server.starttls()
-               server.login(sender,email_password)
-               server.sendmail(sender,reciever,message)
-               server.quit()
-               print("email sent!!")
+               # email=os.environ.get("EMAIL")
+               # sender=email
+               # email_password=os.environ.get("APP_PASSWORDS")
+               # reciever=email
+               # message=f"Some one booked an appointment : Patient name : {patient}  appointed_date : {appointment_date} appointment-time : {appointment_time}"
+               # server=smtplib.SMTP("smtp.gmail.com",587)
+               # server.starttls()
+               # server.login(sender,email_password)
+               # server.sendmail(sender,reciever,message)
+               # server.quit()
+               # print("email sent!!")
                app_id=saveappointnfo(request,patient,appointment_date,doctor,appointment_time,reason_for_visit,booked_date)
                return redirect("showappointinfo")
      return render(request,"appointForms.html",{"appoint":appointinfo})
