@@ -125,8 +125,6 @@
     left:180px;
 }
 .bedsinfo{
-    position:absolute;
-    left:180px;
     display:grid;
     grid-template-columns:1fr;
     gap:20px;
@@ -142,8 +140,6 @@
     border:8px solid darkmagenta;
 }
 .secbedinfo{
-    position:absolute;
-    left:180px;
     display:grid;
     grid-template-columns:1fr;
     gap:20px;
