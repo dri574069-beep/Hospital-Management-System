@@ -551,7 +551,7 @@ def saveBedsInfo(request,bed_number,room_no,bed_type,floor_number,bed_status,ass
 @login_required
 def bedhome(request):
      beds=beds_info.objects.all()
-     return render(request,"bedsHome.html",{"beds":beds})
+     return render(request,"bedshome.html",{"beds":beds})
 # def allbeds(request):
 #      beds=beds_info.objects.all()
 #      return render(request,"bedsHome.html",{"beds":beds})
