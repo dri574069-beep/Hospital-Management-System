@@ -120,14 +120,17 @@ class nurse_work_info(models.Model):
     shift_end=models.TimeField()
 #appointments info database
 class appointments(models.Model):
-    patient=models.CharField(max_length=200)
+    patient =models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+    )
     doctor=models.CharField(max_length=200)
     appointment_date=models.DateField()
     appointment_time=models.TimeField()
     reason_for_visit=models.CharField(max_length=300)
     booked_date=models.DateField(null=True,blank=True)
     def __str__(self):
-        return self.patient
+        return self.patient.username
 #doctor info database
 class Doctors_contact_info(models.Model):
     per_id=models.ForeignKey(doctor_perinfo,on_delete=models.CASCADE,null=True,blank=True)

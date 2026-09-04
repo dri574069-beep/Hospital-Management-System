@@ -598,7 +598,7 @@ def saveappointnfo(request,patient,appointment_date,doctor,appointment_time,reas
 @login_required
 def showappointinfo(request):
      # id=request.session.get("app_id")
-     appoInfo=appointments.objects.get(patient=request.user.username)
+     appoInfo=appointments.objects.filter(patient=request.user)
      return render(request,"showAppointInfo.html",{"app_info":appoInfo})
 @login_required
 def medInfoForms(request):

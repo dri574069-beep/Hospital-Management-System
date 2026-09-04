@@ -1,5 +1,6 @@
 from django import forms
 
+from django.contrib.auth.models import User
 class loginInfo(forms.Form):
     username=forms.CharField(max_length=100,widget=forms.TextInput)
     email=forms.EmailField(
@@ -175,7 +176,11 @@ class bedsInfo(forms.Form):
     assigned_date=forms.DateField(widget=forms.DateInput(attrs={"type":"date"}))
     discharge_date=forms.DateField(widget=forms.DateInput(attrs={"type":"date"}))
 class appointment(forms.Form):
-    patient=forms.CharField(max_length=200,widget=forms.TextInput)
+    
+    patient = forms.ModelChoiceField(
+        queryset=User.objects.all(),
+        widget=forms.Select
+    )
     doctor=forms.CharField(max_length=200,widget=forms.TextInput)
     appointment_date=forms.DateField(widget=forms.DateInput(attrs={"type":"date"}))
     appointment_time=forms.TimeField(widget=forms.TimeInput(attrs={"type":"time"}))

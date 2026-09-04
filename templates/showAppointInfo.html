@@ -15,7 +15,7 @@
     <div style="position:absolute;left:500px;">
     {% for a in app_info %}
     <div class="appoints">
-        <h1>Patient : {{a}}</h1>
+        <h1>Patient : {{a.patient.username}}</h1>
         <p><i class="fa-solid fa-star"></i>  Appointment date : {{a.appointment_date}}</p>
         <p><i class="fa-solid fa-star"></i>  Appointment time : {{a.appointment_time}}</p>
         <p><i class="fa-solid fa-star"></i>  Reason for visit : {{a.reason_for_visit}}</p>
