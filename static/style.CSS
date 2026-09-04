@@ -120,15 +120,16 @@
     left:190px;
 }
 #motherdiv{
+    
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    margin:2px;
     position:absolute;
     top:30px;
     left:180px;
 }
 .bedsinfo{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:20px;
-    margin:2px;
     border:0.5px solid black;
     height:350px;
     width:600px;
@@ -140,10 +141,6 @@
     border:8px solid darkmagenta;
 }
 .secbedinfo{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:20px;
-    margin:2px;
     border:0.5px solid black;
     height:350px;
     width:600px;
