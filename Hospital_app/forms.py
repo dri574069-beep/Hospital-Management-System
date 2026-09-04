@@ -190,7 +190,7 @@ class medForms(forms.Form):
     manufacturer=forms.CharField(max_length=200,widget=forms.TextInput)
     quantity_in_stock=forms.CharField(max_length=200,widget=forms.TextInput)
     unit_price=forms.FloatField(widget=forms.NumberInput)
-    expiry_date=forms.CharField(max_length=200,widget=forms.TextInput)
+    expiry_date=forms.CharField(max_length=200,widget=forms.DateInput)
     prescription_required=forms.CharField(widget=forms.Textarea)
     status=forms.CharField(max_length=200,widget=forms.TextInput)
 class roomsInfo(forms.Form):
