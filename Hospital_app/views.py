@@ -598,7 +598,7 @@ def saveappointnfo(request,patient,appointment_date,doctor,appointment_time,reas
 @login_required
 def showappointinfo(request):
      # id=request.session.get("app_id")
-     appoInfo=appointments.objects.filter(patient=request.user.username)
+     appoInfo=appointments.objects.all()
      return render(request,"showAppointInfo.html",{"app_info":appoInfo})
 @login_required
 def medInfoForms(request):
@@ -663,7 +663,7 @@ def roomsForm(request):
                saveinfo(request,room_number,room_type,floor_number,department,capacity,occupied_beds,available_beds,room_status,daily_charge)
      return render(request,"roomsForm.html",{"room":room})
 def saveinfo(request,room_number,room_type,floor_number,department,capacity,occupied_beds,available_beds,room_status,daily_charge):
-     roomsInfo=room_info.objects.create(
+     roomsInfo=room_info.objects.create(    
           room_number=room_number,
           room_type=room_type,
           floor_number=floor_number,
