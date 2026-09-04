@@ -105,7 +105,7 @@ def patientData(request):
                 nationality=Pdatas.cleaned_data["nationality"]
                 patient_id=getData(name,date_of_birth,age,gender,blood_group,martial_status,nationality)
                 return redirect("patientdataForms",id=patient_id)
-        return render(request,"patientData.html",{"Datas":Pdatas})
+        return render(request,"PatientData.html",{"Datas":Pdatas})
 def getData(name,date_of_birth,age,gender,blood_group,martial_status,nationality):
         patient=patient_info.objects.create(
             full_name=name,
